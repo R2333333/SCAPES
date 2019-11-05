@@ -1,6 +1,6 @@
 OPT = -Wall -O2
-system: main.o Control.o View.o Manage.o Repository.o Setting.o 
-	g++ $(OPT) -o system main.o Control.o View.o Manage.o Repository.o Setting.o Program.o 
+system: main.o Control.o View.o Manage.o Repository.o Setting.o Program.o
+	g++ $(OPT) -o system main.o Control.o View.o Manage.o Repository.o Setting.o Program.o
 
 main.o: main.cc
 	g++ $(OPT) -c main.cc
