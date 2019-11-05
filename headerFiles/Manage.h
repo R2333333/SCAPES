@@ -1,7 +1,6 @@
 #ifndef MANAGE_H
 #define MANAGE_H
 #include "Repository.h"
-#include "Instruction.h"
 #include "Setting.h"
 #include <string>
 #include <iostream>

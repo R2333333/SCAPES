@@ -2,8 +2,9 @@
 #define OPERAND_H
 #include "Identifier.h"
 
-public class Operand{
+class Operand{
   public:
     Operand(){};
     Identifier idertifier;
-}
+};
+#endif

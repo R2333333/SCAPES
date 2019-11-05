@@ -6,14 +6,20 @@
 
 using namespace std;
 
+class Program;
+
 class Statement{
 
   public:
-	virtual void compile(string *instr) = 0;
+	virtual void compile(string*) = 0;
 	virtual void run() = 0;
+	string *getInstruction();
+
   protected:
 	Operand *operand1, *operand2;
-	Label label;
+	Label *label;
+	Program *program;
+	string instruction;
 };
 
 #endif

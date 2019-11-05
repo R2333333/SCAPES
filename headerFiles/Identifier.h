@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-public class Identifier{
+class Identifier{
   public:
           Identifier(){};
   private:
