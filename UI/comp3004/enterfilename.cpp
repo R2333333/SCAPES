@@ -19,5 +19,8 @@ EnterFileName::~EnterFileName()
 void EnterFileName::on_buttonBox_accepted()
 {
     this->nameEntered = (ui->lineEdit->text());
-
+    RepositoryControl *repo = new RepositoryControl();
+    if (this->type.compare("create") == 0) {
+        repo->create(nameEntered.toStdString());
+    }
 }
