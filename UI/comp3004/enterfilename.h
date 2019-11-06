@@ -25,6 +25,7 @@ private:
     Ui::EnterFileName *ui;
     QString nameEntered;
     QString type;
+
 };
 
 #endif // ENTERFILENAME_H
