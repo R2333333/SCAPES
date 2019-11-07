@@ -5,8 +5,8 @@ using namespace std;
 
 class Identifier{
   public:
-          Identifier();
-  protected:
+          Identifier(string=NULL);
+  private:
           string name;
 };
 

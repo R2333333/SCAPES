@@ -3,7 +3,9 @@
 
 #include <string>
 #include <QDialog>
+#include <QMessageBox>
 #include "../../headerFiles/RepositoryControl.h"
+#include "texteditor.h"
 
 namespace Ui {
 class EnterFileName;

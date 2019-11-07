@@ -25,21 +25,27 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        ../../repository/Repository.cc \
+        ../../repository/RepositoryControl.cc \
         enterfilename.cpp \
         main.cpp \
         mainwindow.cpp \
-        manageprogram.cpp
+        manageprogram.cpp \
+        texteditor.cpp
 
 HEADERS += \
         ../../headerFiles/RepositoryControl.h \
+        ../../headerFiles/Statement.h \
         enterfilename.h \
         mainwindow.h \
-        manageprogram.h
+        manageprogram.h \
+        texteditor.h
 
 FORMS += \
         enterfilename.ui \
         mainwindow.ui \
-        manageprogram.ui
+        manageprogram.ui \
+        texteditor.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

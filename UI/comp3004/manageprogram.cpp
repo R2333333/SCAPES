@@ -7,6 +7,7 @@ ManageProgram::ManageProgram(QWidget *parent) :
     ui(new Ui::ManageProgram)
 {
     ui->setupUi(this);
+    setWindowTitle("Manage Program");
 }
 
 ManageProgram::~ManageProgram()
@@ -18,6 +19,12 @@ void ManageProgram::on_pushButton_clicked()
 {
     EnterFileName *enterFileName = new EnterFileName(this,"create");
     enterFileName->show();
-    RepositoryControl *respoCon = new RepositoryControl();
-    respoCon->save(enterFileName->getFileName());
+
+
+}
+
+void ManageProgram::on_pushButton_2_clicked()
+{
+    EnterFileName *enterFileName = new EnterFileName(this,"open");
+    enterFileName->show();
 }

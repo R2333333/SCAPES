@@ -6,7 +6,7 @@ using namespace std;
 
 #include "../headerFiles/Statement.h"
 
-Statement::Statement(sting inst, string op1, string op2){
+Statement::Statement(sting inst, Operand *op1, Operand *op2){
   instruction = inst;
   operand1 = op1;
   operand2 = op2;
