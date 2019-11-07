@@ -10,7 +10,7 @@ class Program;
 
 class Statement{
 public:
-  Statement(string = "",string = "", string = "");
+  Statement(string = "", Operand*=NULL, Operand*=NULL);
   virtual void compile(string*) = 0;
   virtual void run() = 0;
   string *getInstruction();
