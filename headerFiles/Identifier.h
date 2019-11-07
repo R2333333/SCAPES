@@ -5,10 +5,9 @@ using namespace std;
 
 class Identifier{
   public:
-          Identifier(){};
-  private:
+          Identifier();
+  protected:
           string name;
-          
-};        
+};
 
 #endif

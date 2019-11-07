@@ -1,9 +1,12 @@
-#include "../headerFiles/Statement.h"
+#include <iostream>
 using namespace std;
+#include <string>
 
-class ReadStmt : public Statement {
-  public:
-    ReadStmt(){}
-    void compile(string *instr){}
-    void run(){};
-};
+#include "../headerFiles/DeclIntStmt.h"
+
+DeclIntStmt::DeclIntStmt(string inst, string op1)
+    :Statement(inst, op1){}
+
+void DeclIntStmt::compile(string op1){
+
+}
