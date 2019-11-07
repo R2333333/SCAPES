@@ -4,7 +4,8 @@
 
 class Operand{
   public:
-    Operand(){};
+    Operand();
+  private:
     Identifier idertifier;
 };
 #endif

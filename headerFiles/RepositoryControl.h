@@ -8,8 +8,7 @@ using namespace std;
 class RepositoryControl{
   public:
 	  void save(string){}
-      void create(string){}
+    void create(string){}
 	  void open(string);
 };
 #endif
-
