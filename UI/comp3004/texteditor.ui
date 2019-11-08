@@ -33,12 +33,24 @@
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="actionSave"/>
-    <addaction name="actionSave_As"/>
     <addaction name="actionOpen"/>
     <addaction name="actionOpen_New"/>
+    <addaction name="separator"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionSave_As"/>
+   </widget>
+   <widget class="QMenu" name="menuBuild">
+    <property name="title">
+     <string>Build</string>
+    </property>
+    <addaction name="actionCompile"/>
+    <addaction name="actionCompile_From"/>
+    <addaction name="separator"/>
+    <addaction name="actionRun"/>
+    <addaction name="actionRun_From"/>
    </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuBuild"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionSave">
@@ -59,6 +71,26 @@
   <action name="actionOpen_New">
    <property name="text">
     <string>Open New</string>
+   </property>
+  </action>
+  <action name="actionCompile">
+   <property name="text">
+    <string>Compile</string>
+   </property>
+  </action>
+  <action name="actionRun">
+   <property name="text">
+    <string>Run</string>
+   </property>
+  </action>
+  <action name="actionCompile_From">
+   <property name="text">
+    <string>Compile From</string>
+   </property>
+  </action>
+  <action name="actionRun_From">
+   <property name="text">
+    <string>Run From</string>
    </property>
   </action>
  </widget>

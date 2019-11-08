@@ -1,21 +1,22 @@
 #ifndef COMPILECONTROL_H
 #define COMPILECONTROL_H
-#include "Repository.h"
+#include "RepositoryControl.h"
 #include "Program.h"
-#include <string>
+#include <QMainWindow>
+
 using namespace std;
 
 class CompileControl{
   public:
-	  CompileControl(string filePath, string outPutName);
+      CompileControl(QString filePath, QString outPutName);
 	  void compile();
 	  void storePgm();
-
+      ~CompileControl();
   private:
 
-	  Repository repository;
-	  Program *program;
-	  string filePath;
-	  string outPutName;
+      RepositoryControl *repository;
+      Program *program;
+      QString filePath;
+      QString outPutName;
 };
 #endif

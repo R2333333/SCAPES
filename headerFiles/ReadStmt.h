@@ -1,7 +1,7 @@
 #ifndef READSTMT_H
 #define READSTMT_H
 
-#include "../headerFiles/Statement.h"
+#include "Statement.h"
 
 class ReadStmt : public Statement {
   public:

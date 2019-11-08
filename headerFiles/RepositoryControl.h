@@ -3,12 +3,17 @@
 
 #include <fstream>
 #include <string>
+#include <QMessageBox>
+#include <QFile>
+#include <QFileDialog>
+#include <QTextStream>
 
 using namespace std;
 
 class RepositoryControl{
   public:
-      void save(string,string*);
+      void save(QWidget*,QString,QString);
+    void save(QString outPutFile);
     void create(string);
     void open(string);
 };

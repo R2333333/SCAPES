@@ -1,7 +1,7 @@
 #ifndef JMORESTMT_H
 #define JMORESTMT_H
 
-#include "../headerFiles/Statement.h"
+#include "Statement.h"
 
 class JMoreStmt : public Statement {
   public:

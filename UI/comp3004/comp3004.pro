@@ -25,6 +25,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        ../../Program.cc \
+        ../../compiler/CompileControl.cc \
         ../../repository/Repository.cc \
         ../../repository/RepositoryControl.cc \
         enterfilename.cpp \
@@ -34,8 +36,14 @@ SOURCES += \
         texteditor.cpp
 
 HEADERS += \
+        ../../headerFiles/CompileControl.h \
+        ../../headerFiles/Identifier.h \
+        ../../headerFiles/Label.h \
+        ../../headerFiles/Operand.h \
+        ../../headerFiles/Program.h \
         ../../headerFiles/RepositoryControl.h \
         ../../headerFiles/Statement.h \
+        ../../headerFiles/Variable.h \
         enterfilename.h \
         mainwindow.h \
         manageprogram.h \
