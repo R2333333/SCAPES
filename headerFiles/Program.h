@@ -1,22 +1,23 @@
-#ifndef PROGRAM_M
-#define PROGRAM_M
-#include "Statement.h"
+#ifndef PROGRAM_H
+#define PROGRAM_H
 #include "Identifier.h"
-#include <string>
+#include <qstring.h>
+#include "Statement.h"
 
 class Program{
   public:
-	  Program(std::string);
+      Program(QString);
 	  void compile();
 	  void print();
-	  void setFileName(std::string);
-	  std::string getFileName();
+      void setFileName(QString);
+      QString getFileName();
 	  int getComparisonFlag();
 
   private:
-	  std::string fileName;
+      QString fileName;
 	  int comparisonFlag;
 	  Identifier **identifier;
-	  Statement **statement;
+      Statement **statement;
 };
+
 #endif

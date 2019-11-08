@@ -1,7 +1,7 @@
 #ifndef INDCOM_H
 #define INDCOM_H
 
-#include "../headerFiles/Statement.h"
+#include "Statement.h"
 
 class IndCom : public Statement {
   public:

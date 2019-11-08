@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-#include <string>
+#include <qstring.h>
 
 #include "../headerFiles/DeclIntStmt.h"
 

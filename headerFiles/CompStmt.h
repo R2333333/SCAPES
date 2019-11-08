@@ -1,18 +1,18 @@
 #ifndef COMPSTMT_H
 #define COMPSTMT_H
 
-#include "../headerFiles/Statement.h"
+#include "Statement.h"
 
 class CompStmt : public Statement {
   public:
-    CompStmt(string = "", string = "", string ="");
-    int compile(Statement*);
+    CompStmt(QString = "", Operand* = NULL, Operand* = NULL);
+    void compile(QString*);
     void run();
 
   protected:
     Operand *operand1, *operand2;
     Label *label;
     Program *program;
-    string instruction;
+    QString instruction;
 };
 #endif

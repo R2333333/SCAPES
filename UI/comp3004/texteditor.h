@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "../../headerFiles/RepositoryControl.h"
+#include "../../headerFiles/CompileControl.h"
 
 namespace Ui {
 class TextEditor;
@@ -18,6 +19,10 @@ public:
 
 private slots:
     void on_actionSave_triggered();
+
+    void on_actionSave_As_triggered();
+
+    void on_actionCompile_triggered();
 
 private:
     Ui::TextEditor *ui;
