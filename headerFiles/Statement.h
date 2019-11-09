@@ -1,6 +1,6 @@
 #ifndef STATEMENT_H
 #define STATEMENT_H
-#include <qstring.h>
+#include <QString>
 #include "Label.h"
 #include "Operand.h"
 #include <QJsonObject>
@@ -11,7 +11,7 @@ class Program;
 
 class Statement{
 public:
-  Statement(QString inst, Operand* = NULL, Operand* = NULL);
+  Statement(Label* labelName, QString Instruc = NULL, Operand* = NULL, Operand* = NULL);
   virtual void compile(QString*) = 0;
   virtual void run() = 0;
   QString *getInstruction();

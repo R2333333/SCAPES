@@ -16,7 +16,7 @@
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="SetPreference">
       <property name="text">
        <string>Set Preference</string>
       </property>
@@ -30,7 +30,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton_3">
+     <widget class="QPushButton" name="Quit">
       <property name="text">
        <string>Quit</string>
       </property>
@@ -52,8 +52,8 @@
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>
   <tabstop>manageProg</tabstop>
-  <tabstop>pushButton_2</tabstop>
-  <tabstop>pushButton_3</tabstop>
+  <tabstop>SetPreference</tabstop>
+  <tabstop>Quit</tabstop>
  </tabstops>
  <resources/>
  <connections/>

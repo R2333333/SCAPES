@@ -18,9 +18,12 @@ public:
     ~ManageProgram();
 
 private slots:
-    void on_pushButton_clicked();
 
-    void on_pushButton_2_clicked();
+    void on_Create_clicked();
+
+    void on_Open_clicked();
+
+    void on_Compile_clicked();
 
     void on_pushButton_3_clicked();
 

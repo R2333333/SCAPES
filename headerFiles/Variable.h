@@ -2,13 +2,15 @@
 #define VARIABLE_H
 
 #include "Identifier.h"
-#include <string>
+#include <QString>
 
 class Variable : public Identifier{
   public:
     Variable();
     ~Variable();
+    void SetValue(int);
+    int GetValue();
   private:
-    int variable;
+    int value;
 };
 #endif

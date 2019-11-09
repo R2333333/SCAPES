@@ -1,5 +1,6 @@
 #ifndef IDENTIFIER_H
 #define IDENTIFIER_H
+
 #include <string>
 #include <QJsonObject>
 
@@ -13,6 +14,7 @@ class Identifier{
   private:
           string name;
           QJsonObject identifierObj;
+
 };
 
 #endif
