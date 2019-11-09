@@ -1,13 +1,11 @@
 #ifndef LABEL_H
 #define LABEL_H
 #include "Identifier.h"
-#include <string>
+#include <QString>
 
 class Label : public Identifier{
   public:
     Label();
     ~Label();
-  private:
-    string name;
 };
 #endif

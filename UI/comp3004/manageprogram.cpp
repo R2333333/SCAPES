@@ -15,16 +15,20 @@ ManageProgram::~ManageProgram()
     delete ui;
 }
 
-void ManageProgram::on_pushButton_clicked()
+void ManageProgram::on_Create_clicked()
 {
     EnterFileName *enterFileName = new EnterFileName(this,"create");
     enterFileName->show();
-
-
 }
 
-void ManageProgram::on_pushButton_2_clicked()
+void ManageProgram::on_Open_clicked()
 {
     EnterFileName *enterFileName = new EnterFileName(this,"open");
     enterFileName->show();
+}
+
+
+void ManageProgram::on_Compile_clicked()
+{
+
 }
