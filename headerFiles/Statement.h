@@ -3,6 +3,7 @@
 #include <QString>
 #include "Label.h"
 #include "Operand.h"
+#include <QJsonObject>
 
 using namespace std;
 
@@ -17,14 +18,15 @@ public:
   QString *getFirstOperand();
   QString *getSecondOperand();
   QJsonObejct getObj();
-  void ChooseStmt();
-  ~Statement();
+  virtual ~Statement();
+
 
 protected:
   Operand *operand1, *operand2;
   Label *label;
   Program *program;
   QString instruction;
-  QJsonObejct jsonobj;
+  QJsonObject statementObj;
+
 };
 #endif
