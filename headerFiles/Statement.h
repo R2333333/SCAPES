@@ -4,6 +4,7 @@
 #include <QJsonObejct>
 #include "Label.h"
 #include "Operand.h"
+#include <QJsonObject>
 
 using namespace std;
 
@@ -26,5 +27,6 @@ protected:
   Program *program;
   QString instruction;
   QJsonObejct statementObj;
+  
 };
 #endif

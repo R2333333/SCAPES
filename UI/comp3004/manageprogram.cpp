@@ -27,8 +27,10 @@ void ManageProgram::on_Open_clicked()
     enterFileName->show();
 }
 
-
-void ManageProgram::on_Compile_clicked()
+void ManageProgram::on_pushButton_3_clicked()
 {
-
+    QString fileName = QFileDialog::getOpenFileName(this,"Please Choose File to Compile");
+    QString outputName = QFileDialog::getSaveFileName(this, "Please Choose Output File Name");
+    CompileControl *comCon = new CompileControl(fileName,outputName);
+    comCon->compile();
 }
