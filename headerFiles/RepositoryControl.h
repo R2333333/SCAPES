@@ -15,6 +15,6 @@ class RepositoryControl{
     void save(QWidget*,QString,QString);
     void create(string);
     void open(string);
-    QString Get
+
 };
 #endif

@@ -1,7 +1,6 @@
 #ifndef STATEMENT_H
 #define STATEMENT_H
 #include <QString>
-#include <QJsonObejct>
 #include "Label.h"
 #include "Operand.h"
 #include <QJsonObject>
@@ -18,7 +17,7 @@ public:
   QString *getInstruction();
   QString *getFirstOperand();
   QString *getSecondOperand();
-  QJsonObejct getObj();
+  QJsonObject getObj();
   virtual ~Statement();
 
 protected:
@@ -26,7 +25,7 @@ protected:
   Label *label;
   Program *program;
   QString instruction;
-  QJsonObejct statementObj;
+  QJsonObject statementObj;
   
 };
 #endif
