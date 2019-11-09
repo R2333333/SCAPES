@@ -9,7 +9,7 @@ Repository::~Repository(){
 }
 
 int Repository::getNumFiles(){
-  return 0;
+  return size;
 }
 
 /*void Repository::addfile(File* file){

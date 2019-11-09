@@ -1,5 +1,5 @@
-#include "Label_h"
+#include "../headerFiles/Label_h"
 
-Label::Label(){}
+//Label::Label(){}
 
-Label::~Label(){}
+//Label::~Label(){}

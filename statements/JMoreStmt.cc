@@ -1,9 +1,16 @@
-#include "../headerFiles/Statement.h"
+#include "../headerFiles/JMoreStmt.h"
 using namespace std;
 
-class ReadStmt : public Statement {
-  public:
-    ReadStmt(){}
-    void compile(string *instr){}
-    void run(){};
-};
+JMoreStmt::JMoreStmt(){}
+
+void JMoreStmt::compile(QJsonObejct &obj){
+  if(label->GetName() != NULL){
+    obj["Label"] = label->GetName();
+  }
+
+  obj["Instruction"] = instruction;
+
+  obj["Operand1"] = this->getFirstOperand();
+}
+
+void JMoreStmt::run(){};

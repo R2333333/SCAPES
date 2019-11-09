@@ -12,9 +12,9 @@ using namespace std;
 
 class RepositoryControl{
   public:
-      void save(QWidget*,QString,QString);
-    void save(QString outPutFile);
+    void save(QWidget*,QString,QString);
     void create(string);
     void open(string);
+    QString Get
 };
 #endif
