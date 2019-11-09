@@ -3,6 +3,8 @@
 #include "Identifier.h"
 #include <qstring.h>
 #include "Statement.h"
+#include <QJsonObject>
+#include <QJsonArray>
 
 class Program{
   public:
@@ -14,6 +16,7 @@ class Program{
 	  int getComparisonFlag();
 
   private:
+      QJsonObject programObj;
       QString fileName;
 	  int comparisonFlag;
 	  Identifier **identifier;

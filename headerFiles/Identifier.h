@@ -1,16 +1,20 @@
 #ifndef IDENTIFIER_H
 #define IDENTIFIER_H
-#include <QString>
+
+#include <string>
+#include <QJsonObject>
 
 using namespace std;
 
 class Identifier{
   public:
-          Identifier(QString = "");
-          ~Identifier();
-          QString GetName();
-  protected:
-          QString name;
+          Identifier(string=NULL);
+          QJsonObject getObj(){return identifierObj;}
+
+  private:
+          string name;
+          QJsonObject identifierObj;
+
 };
 
 #endif
