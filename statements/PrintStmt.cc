@@ -1,9 +1,16 @@
-#include "../headerFiles/Statement.h"
+#include "../headerFiles/PrintStmt.h"
 using namespace std;
 
-class ReadStmt : public Statement {
-  public:
-    ReadStmt(){}
-    void compile(string *instr){}
-    void run(){};
-};
+PrintStmt::PrintStmt(){}
+
+void PrintStmt::compile(QJsonObejct &obj){
+  if(label->GetName() != NULL){
+    obj["Label"] = label->GetName();
+  }
+
+  obj["Instruction"] = instruction;
+
+  obj["Operand1"] = this->getFirstOperand();
+}
+
+void PrintStmt::run(){}

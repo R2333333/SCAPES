@@ -5,14 +5,7 @@
 
 class DeclIntStmt : public Statement {
   public:
-    DeclIntStmt();
-    void compile(string *instr);
+    void compile(QJsonObejct &);
     void run();
-
-  protected:
-    Operand *operand1, *operand2;
-    Label *label;
-    Program *program;
-    string instruction;
 };
 #endif

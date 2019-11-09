@@ -10,20 +10,21 @@ class Program;
 
 class Statement{
 public:
-  Statement(Label* labelName, QString Instruc = NULL, Operand* = NULL, Operand* = NULL);
-  virtual void compile(QString*) = 0;
+  Statement(QString = NULL, QString = NULL, QString = NULL, QString = NULL);
+  virtual void compile(QJsonObejct &) = 0;
   virtual void run() = 0;
   QString *getInstruction();
   QString *getFirstOperand();
   QString *getSecondOperand();
-  virtual ~Statement();
+  QJsonObejct getObj();
+  void ChooseStmt();
+  ~Statement();
 
 protected:
   Operand *operand1, *operand2;
   Label *label;
   Program *program;
   QString instruction;
-//class Statement{
-
+  QJsonObejct jsonobj;
 };
 #endif

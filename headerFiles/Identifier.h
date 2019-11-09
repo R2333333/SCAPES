@@ -6,7 +6,7 @@ using namespace std;
 
 class Identifier{
   public:
-          Identifier(QString = "");
+          Identifier(QString = NULL);
           ~Identifier();
           QString GetName();
   protected:

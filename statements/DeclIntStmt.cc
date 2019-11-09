@@ -1,12 +1,17 @@
-#include <iostream>
-using namespace std;
-#include <qstring.h>
-
 #include "../headerFiles/DeclIntStmt.h"
+using namespace std;
 
-DeclIntStmt::DeclIntStmt(string inst, string op1, NULL)
-    :Statement(inst, op1, NULL){}
+DeclIntStmt::DeclIntStmt(){}
 
-void DeclIntStmt::compile(string op1){
-  Qstring op1 = this->getFirstOperand();
+void DeclIntStmt::compile(QJsonObejct &obj){
+  if(label->GetName() != NULL){
+    obj["Label"] = label->GetName();
+  }
+
+  obj["Instruction"] = instruction;
+
+  obj["Operand1"] = this->getFirstOperand();
+
 }
+
+void DeclIntStmt::run(){}

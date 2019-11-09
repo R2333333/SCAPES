@@ -11,6 +11,14 @@ CompileControl::~CompileControl(){
   //delete program;
 }
 
+QString CompileControl::GetSource(){
+    
+}
+
+void CompileControl::CreatePgm(){
+  program = new Program(filePath);
+}
+
 //compile program by calling the compile function of Program object
 void CompileControl::compile(){
 //  program->compile();

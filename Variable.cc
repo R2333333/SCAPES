@@ -1,8 +1,4 @@
-#include "Variable.h"
-
-Variable::Variable(){}
-
-Variable::~Variable(){}
+#include "../headerFiles/Variable.h"
 
 void Variable::SetValue(int val){
   value = val;

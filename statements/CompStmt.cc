@@ -1,13 +1,18 @@
-#include <iostream>
-using namespace std;
-#include <qstring.h>
-
 #include "../headerFiles/CompStmt.h"
+using namespace std;
 
-CompStmt::CompStmt(QString inst, Operand* op1, Operand* op2)
-:Statement(inst, op1, op2){}
+CompStmt::CompStmt(){}
 
-void Statement::compile(QString *a){
-  //return cmp->operand1 > cmp->operand2;
+void CompStmt::compile(QJsonObejct &obj){
+  if(label->GetName() != NULL){
+    obj["Label"] = label->GetName();
+  }
 
+  obj["Instruction"] = instruction;
+
+  obj["Operand1"] = this->getFirstOperand();
+
+  obj["Operand2"] = this->getSecondOperand();
 }
+
+void CompStmt::run(){}

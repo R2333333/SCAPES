@@ -1,9 +1,14 @@
-#include "../headerFiles/Statement.h"
+#include "../headerFiles/EndStmt.h"
 using namespace std;
 
-class ReadStmt : public Statement {
-  public:
-    ReadStmt(){}
-    void compile(string *instr){}
-    void run(){};
-};
+EndStmt::EndStmt(){}
+
+void EndStmt::compile(QJsonObejct &obj){
+  if(label->GetName() != NULL){
+    obj["Label"] = label->GetName();
+  }
+
+  obj["Instruction"] = instruction;
+}
+
+void EndStmt::run(){};

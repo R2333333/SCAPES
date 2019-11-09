@@ -5,9 +5,8 @@
 
 class Operand{
   public:
-    Operand();
+    Operand(QString = NULL);
     ~Operand();
-    void SetOperandName(QString);
     Identifier GetIdent();
   private:
     Identifier idertifier;

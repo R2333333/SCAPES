@@ -1,4 +1,4 @@
-#include "Identifier.h"
+#include "../headerFiles/Identifier.h"
 
 Identifier::Identifier(QString n){
   name = n;

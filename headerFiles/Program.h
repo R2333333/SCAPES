@@ -6,18 +6,18 @@
 
 class Program{
   public:
-      Program(QString);
+    Program(QString);
 	  void compile();
 	  void print();
-      void setFileName(QString);
-      QString getFileName();
+    void setFileName(QString);
+    QString getFileName();
 	  int getComparisonFlag();
 
   private:
-      QString fileName;
+    QString fileName;
 	  int comparisonFlag;
 	  Identifier **identifier;
-      Statement **statement;
+    Statement **statement;
 };
 
 #endif
