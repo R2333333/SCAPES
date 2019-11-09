@@ -1,25 +1,25 @@
 #include <iostream>
 #include <iomanip>
-#include <string>
 
 using namespace std;
 
 #include "../headerFiles/Statement.h"
 
-Statement::Statement(sting inst, Operand *op1, Operand *op2){
+Statement::Statement(QString labelname, QString inst, Operand *op1, Operand *op2){
+  label->SetLabelName(labelname);
   instruction = inst;
   operand1 = op1;
   operand2 = op2;
 }
 
-string Statement::getInstruction(){
+QString Statement::getInstruction(){
   return instruction;
 }
 
-string Statement::getFirstOperand(){
+QSring Statement::getFirstOperand(){
   return operand1;
 }
 
-string Statement::getSecondOperand(){
+QString Statement::getSecondOperand(){
   return operand2;
 }

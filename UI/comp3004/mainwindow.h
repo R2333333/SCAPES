@@ -19,11 +19,11 @@ public:
 
 private slots:
 
-    void on_pushButton_3_clicked();
+    void on_SetPreference_clicked();
 
     void on_manageProg_clicked();
 
-    void on_pushButton_2_clicked();
+    void on_Quit_clicked();
 
 private:
     Ui::MainWindow *ui;

@@ -35,3 +35,4 @@ void TextEditor::on_actionCompile_triggered()
     CompileControl *compCon = new CompileControl(fileToSave, fileToSave+".out.json");
     compCon->compile();
 }
+

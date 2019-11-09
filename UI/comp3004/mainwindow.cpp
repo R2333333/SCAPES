@@ -14,9 +14,9 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_3_clicked()
+void MainWindow::on_SetPreference_clicked()
 {
-    close();
+
 }
 
 void MainWindow::on_manageProg_clicked()
@@ -25,7 +25,7 @@ void MainWindow::on_manageProg_clicked()
     manageProg->show();
 }
 
-void MainWindow::on_pushButton_2_clicked()
+void MainWindow::on_Quit_clicked()
 {
-
+    close();
 }
