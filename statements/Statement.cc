@@ -13,7 +13,7 @@ Statement::Statement(QString lablename, QString inst, QString op1, QString op2){
 }
 
 QJsonObejct Statement::getObj(){
-  return jsonobj;
+  return statementObj;
 }
 
 QString Statement::getInstruction(){

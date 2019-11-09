@@ -3,14 +3,14 @@ using namespace std;
 
 JMoreStmt::JMoreStmt(){}
 
-void JMoreStmt::compile(QJsonObejct &obj){
+void JMoreStmt::compile(){
   if(label->GetName() != NULL){
-    obj["Label"] = label->GetName();
+    statementObj["Label"] = label->GetName();
   }
 
-  obj["Instruction"] = instruction;
+  statementObj["Instruction"] = instruction;
 
-  obj["Operand1"] = this->getFirstOperand();
+  statementObj["Operand1"] = this->getFirstOperand();
 }
 
 void JMoreStmt::run(){};

@@ -3,12 +3,12 @@ using namespace std;
 
 EndStmt::EndStmt(){}
 
-void EndStmt::compile(QJsonObejct &obj){
+void EndStmt::compile(){
   if(label->GetName() != NULL){
-    obj["Label"] = label->GetName();
+    statementObj["Label"] = label->GetName();
   }
 
-  obj["Instruction"] = instruction;
+  statementObj["Instruction"] = instruction;
 }
 
 void EndStmt::run(){};

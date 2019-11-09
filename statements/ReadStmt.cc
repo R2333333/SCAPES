@@ -3,14 +3,14 @@ using namespace std;
 
 ReadStmt::ReadStmt(){}
 
-void ReadStmt::compile(QJsonObejct &obj){
+void ReadStmt::compile(){
   if(label->GetName() != NULL){
-    obj["Label"] = label->GetName();
+    statementObj["Label"] = label->GetName();
   }
 
-  obj["Instruction"] = instruction;
+  statementObj["Instruction"] = instruction;
 
-  obj["Operand1"] = this->getFirstOperand();
+  statementObj["Operand1"] = this->getFirstOperand();
 }
 
 void ReadStmt::run(){}

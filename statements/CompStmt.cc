@@ -3,16 +3,16 @@ using namespace std;
 
 CompStmt::CompStmt(){}
 
-void CompStmt::compile(QJsonObejct &obj){
+void CompStmt::compile(){
   if(label->GetName() != NULL){
-    obj["Label"] = label->GetName();
+    statementObj["Label"] = label->GetName();
   }
 
-  obj["Instruction"] = instruction;
+  statementObj["Instruction"] = instruction;
 
-  obj["Operand1"] = this->getFirstOperand();
+  statementObj["Operand1"] = this->getFirstOperand();
 
-  obj["Operand2"] = this->getSecondOperand();
+  statementObj["Operand2"] = this->getSecondOperand();
 }
 
 void CompStmt::run(){}
