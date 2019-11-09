@@ -5,7 +5,7 @@
 
 class JumpStmt : public Statement {
   public:
-    void compile(QJsonObejct &);
+    void compile();
     void run();
 
 };
