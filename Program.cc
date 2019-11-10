@@ -21,15 +21,27 @@ void Program::compile(){
         QMessageBox::warning(nullptr, "Error", "Can not Open file");
     }
 
-    QTextStream in(&inputFile);
-    QString s = in.readLine();
-    while (!s.isNull()){
-        const char* cp = s.toLocal8Bit().data();
-        if (qstrcmp(cp, "#"))
-            continue;
 
-        if(qstrncmp(cp, "dci",3)){
-            Statement *stat = new DeclIntStmt();
+    QTextStream in(&inputFile);
+
+    while (!in.atEnd()){
+
+        QString s = in.readLine();
+
+        qDebug() << s << endl;
+
+        if(s.isEmpty()){
+            continue;
+        }
+
+        const char* cp = s.toLocal8Bit().data();
+
+        if (qstrncmp(cp, "#", 1) == 0){
+            continue;
+        }
+
+        if(qstrncmp(cp, "dci",3) == 0){
+            Statement *stat = new DeclIntStmt(NULL, "dci", "a", NULL);
             stat->compile();
             statArray.append(stat->getObj());
             continue;
@@ -70,8 +82,12 @@ void Program::compile(){
 //            continue;
 //        }
 
-        if(qstrncmp(cp, "end",3))
+
+        if(qstrncmp(cp, "end", 3) == 0){
+            qDebug() << "?????" << endl;
+            QMessageBox::warning(nullptr, "Done", "Compile Success!");
             break;
+        }
 
         in.readLine();
     }
