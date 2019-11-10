@@ -1,20 +1,11 @@
-#include "headerFiles/Operand.h"
+#include "Operand.h"
 
 Operand::Operand(QString n){
-  name = n;
-  createIdent();
+  name = n
 }
 
 Operand::~Operand(){}
 
-void Operand::createIdent(){
-  if(name == "jmr" || name == "jmp"){
-    identifier = new Label(name);
-  }else{
-    identifier = new Identifier(name);
-  }
-}
-
-Identifier* Operand::getIdent(){
+Identifier Operand::GetIdent(){
   return identifier;
 }

@@ -1,18 +1,15 @@
 #ifndef OPERAND_H
 #define OPERAND_H
 #include "Identifier.h"
-#include "Label.h"
-#include "Variable.h"
 #include <QString>
 
 class Operand{
   public:
     Operand(QString = NULL);
     ~Operand();
-    void createIdent();
-    Identifier* getIdent();
+    Identifier GetIdent();
   private:
-    Identifier *identifier;
+    Identifier idertifier;
     QString name;
 };
 #endif

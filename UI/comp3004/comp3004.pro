@@ -25,20 +25,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-        ../../Identifier.cc \
-        ../../Label.cc \
-        ../../Operand.cc \
         ../../Program.cc \
         ../../compiler/CompileControl.cc \
         ../../repository/Repository.cc \
         ../../repository/RepositoryControl.cc \
-        ../../statements/CompStmt.cc \
         ../../statements/DeclIntStmt.cc \
-        ../../statements/EndStmt.cc \
-        ../../statements/JMoreStmt.cc \
-        ../../statements/JumpStmt.cc \
-        ../../statements/PrintStmt.cc \
-        ../../statements/ReadStmt.cc \
         ../../statements/Statement.cc \
         enterfilename.cpp \
         main.cpp \
@@ -47,18 +38,12 @@ SOURCES += \
         texteditor.cpp
 
 HEADERS += \
-        ../../headerFiles/CompStmt.h \
         ../../headerFiles/CompileControl.h \
         ../../headerFiles/DeclIntStmt.h \
-        ../../headerFiles/EndStmt.h \
         ../../headerFiles/Identifier.h \
-        ../../headerFiles/JMoreStmt.h \
-        ../../headerFiles/JumpStmt.h \
         ../../headerFiles/Label.h \
         ../../headerFiles/Operand.h \
-        ../../headerFiles/PrintStmt.h \
         ../../headerFiles/Program.h \
-        ../../headerFiles/ReadStmt.h \
         ../../headerFiles/RepositoryControl.h \
         ../../headerFiles/Statement.h \
         ../../headerFiles/Variable.h \

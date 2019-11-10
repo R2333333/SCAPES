@@ -9,9 +9,8 @@ using namespace std;
 class Identifier{
   public:
 
-          Identifier(QString=NULL);
+          Identifier(string=NULL);
           QJsonObject getObj(){return identifierObj;}
-          virtual QString getName();
 
   private:
           QString name;

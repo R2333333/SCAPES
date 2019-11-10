@@ -5,14 +5,14 @@ using namespace std;
 
 #include "../headerFiles/Statement.h"
 
-Statement::Statement(QString labelname, QString inst, QString op1, QString op2){
+Statement::Statement(QString lablename, QString inst, QString op1, QString op2){
   label = new Label(labelname);
   instruction = inst;
   operand1 = new Operand(op1);
   operand2 = new Operand(op2);
 }
 
-QJsonObject Statement::getObj(){
+QJsonObejct Statement::getObj(){
   return statementObj;
 }
 
@@ -20,10 +20,10 @@ QString Statement::getInstruction(){
   return instruction;
 }
 
-QString Statement::getFirstOperand(){
-  return operand1->getIdent()->getName();
+QSring Statement::getFirstOperand(){
+  return operand1->GetIdent().GetName();
 }
 
 QString Statement::getSecondOperand(){
-  return operand2->getIdent()->getName();
+  return operand2->GetIdent().GetName();
 }

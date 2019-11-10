@@ -1,14 +1,11 @@
 #include "../headerFiles/CompStmt.h"
-#include <QDebug>
 using namespace std;
 
-CompStmt::CompStmt(QString labelname, QString inst, QString op1, QString op2)
-  :Statement(labelname, inst, op1, op2){}
+CompStmt::CompStmt(){}
 
 void CompStmt::compile(){
-  
-  if(label->getName() != NULL){
-    statementObj["Label"] = label->getName();
+  if(label->GetName() != NULL){
+    statementObj["Label"] = label->GetName();
   }
 
   statementObj["Instruction"] = instruction;
