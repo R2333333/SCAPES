@@ -1,8 +1,6 @@
 #include "headerFiles/Program.h"
-#include "headerFiles/CompStmt.h"
-#include <QJsonDocument>
 #include <QDebug>
-#include <iostream>
+
 
 using namespace std;
 
@@ -12,39 +10,88 @@ Program::Program(QString fileName){
 
 //compile each statement
 void Program::compile(){
-//  for (Statement **s = statement; s != NULL; s++){
-//    (*s)->compile((*s)->getInstruction());
-//  }int main(){
 
-    /*qDebug() << "1111111" << endl;
-    Statement* c = new CompStmt("L1", "cmp", "a", "b");
-    qDebug() << "2222222" << endl;
-    c->compile();
-    qDebug() << "3333333" << endl;
-    qDebug() << c->getObj() << endl;
-
-    qDebug() << "4444444" << endl;*/
-
+    int statCount = 0, identCount = 0;
+    QFile inputFile(getFileName());
     QJsonArray statArray;
     QJsonArray identArray;
 
-    programObj["name"] = fileName;
 
-//    //get statement objects
-//    for (Statement **s = statement; *s != NULL; ++s){
-//        statArray.append((*s)->getObject());
-//    }
+    if (!inputFile.open(QFile::ReadOnly)){
+        QMessageBox::warning(nullptr, "Error", "Can not Open file");
+    }
 
-//    //get identifier objects
-//    for (Identifier **i = identifier; *i != NULL; ++i){
-//        identArray.append((*i)->getObj());
-//    }
+    QTextStream in(&inputFile);
+    QString s = in.readLine();
+    while (!s.isNull()){
+        const char* cp = s.toLocal8Bit().data();
+        if (qstrcmp(cp, "#"))
+            continue;
+
+        if(qstrncmp(cp, "dci",3)){
+            Statement *stat = new DeclIntStmt();
+            stat->compile();
+            statArray.append(stat->getObj());
+            continue;
+        }
+
+//        if(qstrncmp(cp, "rdi",3)){
+//            Statement *stat = new DeclIntStmt();
+//            stat->compile();
+//            statArray.append(stat->getObj());
+//            continue;
+//        }
+
+//        if(qstrncmp(cp, "cmp",3)){
+//            Statement *stat = new DeclIntStmt();
+//            stat->compile();
+//            statArray.append(stat->getObj());
+//            continue;
+//        }
+
+//        if(qstrncmp(cp, "prt",3)){
+//            Statement *stat = new DeclIntStmt();
+//            stat->compile();
+//            statArray.append(stat->getObj());
+//            continue;
+//        }
+
+//        if(qstrncmp(cp, "jmp",3)){
+//            Statement *stat = new DeclIntStmt();
+//            stat->compile();
+//            statArray.append(stat->getObj());
+//            continue;
+//        }
+
+//        if(qstrncmp(cp, "jmr",3)){
+//            Statement *stat = new DeclIntStmt();
+//            stat->compile();
+//            statArray.append(stat->getObj());
+//            continue;
+//        }
+
+        if(qstrncmp(cp, "end",3))
+            break;
+
+        in.readLine();
+    }
+
+    programObj["programPath"] = fileName;
+
+    //    //get statement objects
+    //    for (Statement **s = statement; *s != NULL; ++s){
+    //        statArray.append((*s)->getObject());
+    //    }
+
+    //    //get identifier objects
+    //    for (Identifier **i = identifier; *i != NULL; ++i){
+    //        identArray.append((*i)->getObj());
+    //    }
 
     programObj["statements"] = statArray;
     programObj["identifiers"] = identArray;
 
-    QJsonDocument doc(programObj);
-    qDebug() << doc.toJson(QJsonDocument::Indented);
+    qDebug() <<programObj;
     qDebug() << "WTF";
 }
 
