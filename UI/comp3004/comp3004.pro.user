@@ -313,7 +313,7 @@
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">comp3004</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">comp30042</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">comp3004</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/student/Documents/COMP3004/UI/comp3004/comp3004.pro</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="uint" key="RunConfiguration.QmlDebugServerPort">3768</value>
