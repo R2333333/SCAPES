@@ -1,11 +1,12 @@
 #include "../headerFiles/PrintStmt.h"
 using namespace std;
 
-PrintStmt::PrintStmt(){}
+PrintStmt::PrintStmt(QString labelname, QString inst, QString op1, QString op2)
+  :Statement(labelname, inst, op1, op2){}
 
 void PrintStmt::compile(){
-  if(label->GetName() != NULL){
-    statementObj["Label"] = label->GetName();
+  if(label->getName() != NULL){
+    statementObj["Label"] = label->getName();
   }
 
   statementObj["Instruction"] = instruction;

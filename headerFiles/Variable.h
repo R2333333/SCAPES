@@ -1,7 +1,7 @@
 #ifndef VARIABLE_H
 #define VARIABLE_H
 
-#include "../headerFiles/Identifier.h"
+#include "Identifier.h"
 #include <QString>
 
 class Variable : public Identifier{

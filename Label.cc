@@ -1,5 +1,6 @@
-#include "../headerFiles/Label_h"
+#include "headerFiles/Label.h"
 
-//Label::Label(){}
+Label::Label(QString n)
+  :Identifier(n){}
 
 //Label::~Label(){}

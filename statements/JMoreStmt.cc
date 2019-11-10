@@ -1,11 +1,12 @@
 #include "../headerFiles/JMoreStmt.h"
 using namespace std;
 
-JMoreStmt::JMoreStmt(){}
+JMoreStmt::JMoreStmt(QString labelname, QString inst, QString op1, QString op2)
+  :Statement(labelname, inst, op1, op2){}
 
 void JMoreStmt::compile(){
-  if(label->GetName() != NULL){
-    statementObj["Label"] = label->GetName();
+  if(label->getName() != NULL){
+    statementObj["Label"] = label->getName();
   }
 
   statementObj["Instruction"] = instruction;
