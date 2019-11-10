@@ -29,6 +29,8 @@ SOURCES += \
         ../../compiler/CompileControl.cc \
         ../../repository/Repository.cc \
         ../../repository/RepositoryControl.cc \
+        ../../statements/DeclIntStmt.cc \
+        ../../statements/Statement.cc \
         enterfilename.cpp \
         main.cpp \
         mainwindow.cpp \
@@ -37,6 +39,7 @@ SOURCES += \
 
 HEADERS += \
         ../../headerFiles/CompileControl.h \
+        ../../headerFiles/DeclIntStmt.h \
         ../../headerFiles/Identifier.h \
         ../../headerFiles/Label.h \
         ../../headerFiles/Operand.h \

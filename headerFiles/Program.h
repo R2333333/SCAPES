@@ -1,10 +1,13 @@
 #ifndef PROGRAM_H
 #define PROGRAM_H
 #include "Identifier.h"
-#include <qstring.h>
+#include <QString>
 #include "Statement.h"
+#include "DeclIntStmt.h"
 #include <QJsonObject>
 #include <QJsonArray>
+#include <QFile>
+#include <QMessageBox>
 
 class Program{
   public:
