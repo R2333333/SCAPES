@@ -1,11 +1,11 @@
-#include "../headerFiles/Identifier.h"
+#include "headerFiles/Identifier.h"
 
 Identifier::Identifier(QString n){
   name = n;
 }
 
-Identifier::~Identifier(){}
+//Identifier::~Identifier(){}
 
-QString Identifier:GetName(){
+QString Identifier::getName(){
   return name;
 }

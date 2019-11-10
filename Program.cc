@@ -1,6 +1,8 @@
 #include "headerFiles/Program.h"
+#include "headerFiles/CompStmt.h"
 #include <QJsonDocument>
 #include <QDebug>
+#include <iostream>
 
 using namespace std;
 
@@ -12,7 +14,17 @@ Program::Program(QString fileName){
 void Program::compile(){
 //  for (Statement **s = statement; s != NULL; s++){
 //    (*s)->compile((*s)->getInstruction());
-//  }
+//  }int main(){
+
+    /*qDebug() << "1111111" << endl;
+    Statement* c = new CompStmt("L1", "cmp", "a", "b");
+    qDebug() << "2222222" << endl;
+    c->compile();
+    qDebug() << "3333333" << endl;
+    qDebug() << c->getObj() << endl;
+
+    qDebug() << "4444444" << endl;*/
+
     QJsonArray statArray;
     QJsonArray identArray;
 

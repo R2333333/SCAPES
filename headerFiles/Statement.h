@@ -14,11 +14,11 @@ public:
   Statement(QString = NULL, QString = NULL, QString = NULL, QString = NULL);
   virtual void compile() = 0;
   virtual void run() = 0;
-  QString *getInstruction();
-  QString *getFirstOperand();
-  QString *getSecondOperand();
-  QJsonObject getObj();
-  virtual ~Statement();
+  virtual QString getInstruction();
+  virtual QString getFirstOperand();
+  virtual QString getSecondOperand();
+  virtual QJsonObject getObj();
+  virtual ~Statement(){};
 
 protected:
   Operand *operand1, *operand2;
@@ -26,6 +26,6 @@ protected:
   Program *program;
   QString instruction;
   QJsonObject statementObj;
-  
+
 };
 #endif
