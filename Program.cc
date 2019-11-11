@@ -12,7 +12,7 @@ Program::Program(QString fileName){
 
 void Program::compile(){
 
-    int statCount = 0, identCount = 0, lineCount = 0;
+    int lineCount = 0;
     QFile inputFile(getFileName());
     QJsonArray statArray;
     QJsonArray identArray;
@@ -45,6 +45,12 @@ void Program::compile(){
                 }
             }
             if(list.at(1) == ""){ //have label
+
+                if(list.count() == 2){
+                    QMessageBox::warning(nullptr, "Error", QString("No instruction after label in line %1, fail to compile!!!").arg(lineCount));
+                    break;
+                }
+
                 if(list.at(2) == "dci"){
                     if(list.count() < 4){
                         QMessageBox::warning(nullptr, "Error", QString("Too few arguments in dci in line %1, fail to compile!!!").arg(lineCount));
@@ -56,6 +62,10 @@ void Program::compile(){
                     Statement *stat = new DeclIntStmt(list.at(0), list.at(2), list.at(3), nullptr);
                     stat->compile();
                     statArray.append(stat->getObj());
+                    QJsonObject identifier;
+                    identifier["LineNO.:"] = lineCount;
+                    identifier["Label:"] = list.at(0);
+                    identArray.append(identifier);
                     continue;
                 }else if(list.at(2) == "rdi"){
                     if(list.count() < 4){
@@ -68,6 +78,10 @@ void Program::compile(){
                     Statement *stat = new ReadStmt(list.at(0), list.at(2), list.at(3), nullptr);
                     stat->compile();
                     statArray.append(stat->getObj());
+                    QJsonObject identifier;
+                    identifier["LineNO.:"] = lineCount;
+                    identifier["Label:"] = list.at(0);
+                    identArray.append(identifier);
                     continue;
                 }else if(list.at(2) == "prt"){
                     if(list.count() < 4){
@@ -80,6 +94,10 @@ void Program::compile(){
                     Statement *stat = new PrintStmt(list.at(0), list.at(2), list.at(3), nullptr);
                     stat->compile();
                     statArray.append(stat->getObj());
+                    QJsonObject identifier;
+                    identifier["LineNO.:"] = lineCount;
+                    identifier["Label:"] = list.at(0);
+                    identArray.append(identifier);
                     continue;
                 }else if(list.at(2) == "jmr"){
                     if(list.count() < 4){
@@ -92,6 +110,10 @@ void Program::compile(){
                     Statement *stat = new JMoreStmt(list.at(0), list.at(2), list.at(3), nullptr);
                     stat->compile();
                     statArray.append(stat->getObj());
+                    QJsonObject identifier;
+                    identifier["LineNO.:"] = lineCount;
+                    identifier["Label:"] = list.at(0);
+                    identArray.append(identifier);
                     continue;
                 }else if(list.at(2) == "jmp"){
                     if(list.count() < 4){
@@ -104,6 +126,10 @@ void Program::compile(){
                     Statement *stat = new JumpStmt(list.at(0), list.at(2), list.at(3), nullptr);
                     stat->compile();
                     statArray.append(stat->getObj());
+                    QJsonObject identifier;
+                    identifier["LineNO.:"] = lineCount;
+                    identifier["Label:"] = list.at(0);
+                    identArray.append(identifier);
                     continue;
                 }else if (list.at(2) == "cmp") {
                     if(list.count() < 5){
@@ -116,6 +142,10 @@ void Program::compile(){
                     Statement *stat = new CompStmt(list.at(0), list.at(2), list.at(3), list.at(4));
                     stat->compile();
                     statArray.append(stat->getObj());
+                    QJsonObject identifier;
+                    identifier["LineNO.:"] = lineCount;
+                    identifier["Label:"] = list.at(0);
+                    identArray.append(identifier);
                     continue;
                 }else if (list.at(2) == "end") {
                     if(list.count() != 3){
@@ -125,6 +155,10 @@ void Program::compile(){
                     Statement *stat = new EndStmt(list.at(0), list.at(2), nullptr, nullptr);
                     stat->compile();
                     statArray.append(stat->getObj());
+                    QJsonObject identifier;
+                    identifier["LineNO.:"] = lineCount;
+                    identifier["Label:"] = list.at(0);
+                    identArray.append(identifier);
                     QMessageBox::warning(nullptr, "Done", "Compile Success!");
                     break;
                 }else{ //incorrect instruction
@@ -240,7 +274,7 @@ void Program::compile(){
     programObj["identifiers"] = identArray;
 
     qDebug() << endl << programObj << endl;
-    qDebug() << "WTF" << endl;
+    //qDebug() << "WTF" << endl;
 }
 
 QJsonObject Program::getQjsonobj(){

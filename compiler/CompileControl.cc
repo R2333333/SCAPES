@@ -7,7 +7,7 @@ CompileControl::CompileControl(QString fileName, QString outPutName){
   this->filePath = fileName;
   this->outPutName = outPutName;
   program = new Program(filePath);
-  qDebug() << "!!!";
+  //qDebug() << "!!!";
 }
 
 CompileControl::~CompileControl(){
