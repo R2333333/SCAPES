@@ -11,14 +11,14 @@ class Program;
 
 class Statement{
 public:
-  Statement(QString = NULL, QString = NULL, QString = NULL, QString = NULL);
+  Statement(QString = nullptr, QString = nullptr, QString = nullptr, QString = nullptr);
   virtual void compile() = 0;
   virtual void run() = 0;
   virtual QString getInstruction();
   virtual QString getFirstOperand();
   virtual QString getSecondOperand();
   virtual QJsonObject getObj();
-  virtual ~Statement(){};
+  //virtual ~Statement();
 
 protected:
   Operand *operand1, *operand2;

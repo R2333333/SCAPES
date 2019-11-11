@@ -5,7 +5,7 @@
 
 class DeclIntStmt : public Statement {
   public:
-    DeclIntStmt(QString = NULL, QString = NULL, QString = NULL, QString = NULL);
+    DeclIntStmt(QString = nullptr, QString = nullptr, QString = nullptr, QString = nullptr);
     void compile();
     void run();
 };

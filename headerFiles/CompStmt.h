@@ -1,11 +1,11 @@
 #ifndef COMPSTMT_H
 #define COMPSTMT_H
 
-#include "Statement.h"
+#include "../headerFiles/Statement.h"
 
 class CompStmt : public Statement {
   public:
-    CompStmt(QString = NULL, QString = NULL, QString = NULL, QString = NULL);
+    CompStmt(QString = nullptr, QString = nullptr, QString = nullptr, QString = nullptr);
     void compile();
     void run();
 

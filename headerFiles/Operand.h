@@ -7,7 +7,7 @@
 
 class Operand{
   public:
-    Operand(QString = NULL);
+    Operand(QString = nullptr);
     ~Operand();
     void createIdent();
     Identifier* getIdent();

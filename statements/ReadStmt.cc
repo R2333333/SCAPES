@@ -5,7 +5,7 @@ ReadStmt::ReadStmt(QString labelname, QString inst, QString op1, QString op2)
   :Statement(labelname, inst, op1, op2){}
 
 void ReadStmt::compile(){
-  if(label->getName() != NULL){
+  if(label->getName() != nullptr){
     statementObj["Label"] = label->getName();
   }
 
