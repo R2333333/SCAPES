@@ -33,8 +33,24 @@ void TextEditor::on_actionSave_As_triggered()
 
 void TextEditor::on_actionCompile_triggered()
 {
-    on_actionSave_triggered();
+    //on_actionSave_triggered();
+    QString outputName = QFileDialog::getSaveFileName(this, "Please Choose Output File Name");
+    QFile outputFile(outputName);
+    if (!outputFile.open(QFile::ReadOnly)){
+        if(outputName == nullptr){
+            QMessageBox::warning(nullptr, "Error", "No output file");
+            return;
+        }else{
+            RepositoryControl *repoCon = new RepositoryControl();
+            repoCon->create(outputName.toStdString());
+        }
+    }
     CompileControl *compCon = new CompileControl(fileToSave, fileToSave+".out.json");
     compCon->compile();
+    QJsonObject outputObj = compCon->getQJson();
+    QJsonDocument Doc(outputObj);
+    QString outputJson(Doc.toJson(QJsonDocument::Compact));
+    RepositoryControl *repoCon = new RepositoryControl();
+    repoCon->save(this,outputName,outputJson);
 }
 

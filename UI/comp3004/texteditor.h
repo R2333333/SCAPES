@@ -2,6 +2,8 @@
 #define TEXTEDITOR_H
 
 #include <QMainWindow>
+#include <QJsonObject>
+#include <QJsonDocument>
 #include "../../headerFiles/RepositoryControl.h"
 #include "../../headerFiles/CompileControl.h"
 
