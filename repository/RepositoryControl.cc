@@ -21,10 +21,6 @@ void RepositoryControl::save(QWidget *p,QString fileName, QString buff){
     file.close();
 }
 
-void RepositoryControl::open(string fileName){
-
-}
-
 /*int main(){
     RepositoryControl *rc = new RepositoryControl();
     rc->create("333");

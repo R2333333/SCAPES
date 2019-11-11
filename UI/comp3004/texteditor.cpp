@@ -15,10 +15,12 @@ TextEditor::~TextEditor()
     delete ui;
 }
 
+void TextEditor::setBuff(QString buff){
+    ui->plainTextEdit->setPlainText(buff);
+}
+
 void TextEditor::on_actionSave_triggered()
 {
-//    fileToSave = QFileDialog::getSaveFileName(this,"open the file");
-//    QFile file(fileToSave);
     RepositoryControl *repoCon = new RepositoryControl();
     repoCon->save(this,fileToSave,ui->plainTextEdit->toPlainText());
 }

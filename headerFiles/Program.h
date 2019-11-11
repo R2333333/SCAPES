@@ -4,6 +4,12 @@
 #include <QString>
 #include "Statement.h"
 #include "DeclIntStmt.h"
+#include "ReadStmt.h"
+#include "PrintStmt.h"
+#include "CompStmt.h"
+#include "JMoreStmt.h"
+#include "JumpStmt.h"
+#include "EndStmt.h"
 #include <QJsonObject>
 #include <QJsonArray>
 #include <QFile>
@@ -12,18 +18,18 @@
 class Program{
   public:
     Program(QString);
-	  void compile();
-	  void print();
+    void compile();
+    void print();
     void setFileName(QString);
     QString getFileName();
-	  int getComparisonFlag();
+    int getComparisonFlag();
+    QJsonObject getQjsonobj();
 
   private:
-
-      QJsonObject programObj;
-      QString fileName;
-	  int comparisonFlag;
-	  Identifier **identifier;
+    QJsonObject programObj;
+    QString fileName;
+    int comparisonFlag;
+    Identifier **identifier;
     Statement **statement;
 };
 

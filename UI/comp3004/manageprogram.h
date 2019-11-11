@@ -4,6 +4,7 @@
 #include "ui_manageprogram.h"
 #include "enterfilename.h"
 #include <QDialog>
+#include <QJsonDocument>
 
 namespace Ui {
 class ManageProgram;

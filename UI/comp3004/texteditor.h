@@ -14,8 +14,9 @@ class TextEditor : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit TextEditor(QWidget *parent = nullptr, QString fileName=NULL);
+    explicit TextEditor(QWidget *parent = nullptr, QString fileName=nullptr);
     ~TextEditor();
+    void setBuff(QString);
 
 private slots:
     void on_actionSave_triggered();
@@ -27,7 +28,7 @@ private slots:
 private:
     Ui::TextEditor *ui;
     QString fileToSave;
-    string buff;
+    QString buff;
 };
 
 #endif // TEXTEDITOR_H
