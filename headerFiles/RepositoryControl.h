@@ -3,6 +3,8 @@
 
 #include <fstream>
 #include <string>
+#include <QDebug>
+#include <QString>
 #include <QMessageBox>
 #include <QFile>
 #include <QFileDialog>
@@ -14,7 +16,6 @@ class RepositoryControl{
   public:
     void save(QWidget*,QString,QString);
     void create(string);
-    void open(string);
 
 };
 #endif

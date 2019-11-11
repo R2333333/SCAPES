@@ -24,10 +24,7 @@ void EnterFileName::on_buttonBox_accepted()
 
     if (this->type.compare("create") == 0) {
         repo->create(nameEntered.toStdString());
-        TextEditor *te = new TextEditor(NULL,this->nameEntered);
+        TextEditor *te = new TextEditor(nullptr,this->nameEntered);
         te->show();
-
-    } else if (this->type.compare("open") == 0) {
-        repo->open(nameEntered.toStdString());
     }
 }

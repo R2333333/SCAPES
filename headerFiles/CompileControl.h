@@ -11,7 +11,8 @@ class CompileControl{
   public:
     CompileControl(QString filePath, QString outPutName);
 	  void compile();
-    QString GetSource();
+    QJsonObject getQJson();
+    //QString GetSource();
     void CreatePgm();
 	  void storePgm();
     ~CompileControl();
