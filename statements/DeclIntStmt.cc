@@ -5,7 +5,7 @@ DeclIntStmt::DeclIntStmt(QString labelname, QString inst, QString op1, QString o
   :Statement(labelname, inst, op1, op2){}
 
 void DeclIntStmt::compile(){
-  if(label->getName() != NULL){
+  if(label->getName() != nullptr){
     statementObj["Label"] = label->getName();
   }
 

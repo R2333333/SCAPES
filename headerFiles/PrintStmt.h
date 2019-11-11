@@ -5,7 +5,7 @@
 
 class PrintStmt : public Statement {
   public:
-    PrintStmt(QString = NULL, QString = NULL, QString = NULL, QString = NULL);
+    PrintStmt(QString = nullptr, QString = nullptr, QString = nullptr, QString = nullptr);
     void compile();
     void run();
 

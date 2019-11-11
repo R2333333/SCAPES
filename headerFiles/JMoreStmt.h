@@ -5,7 +5,7 @@
 
 class JMoreStmt : public Statement {
   public:
-    JMoreStmt(QString = NULL, QString = NULL, QString = NULL, QString = NULL);
+    JMoreStmt(QString = nullptr, QString = nullptr, QString = nullptr, QString = nullptr);
     void compile();
     void run();
 };

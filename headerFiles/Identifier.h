@@ -9,7 +9,7 @@ using namespace std;
 class Identifier{
   public:
 
-          Identifier(QString=NULL);
+          Identifier(QString=nullptr);
           QJsonObject getObj(){return identifierObj;}
           virtual QString getName();
 

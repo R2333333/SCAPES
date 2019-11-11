@@ -5,7 +5,7 @@ JMoreStmt::JMoreStmt(QString labelname, QString inst, QString op1, QString op2)
   :Statement(labelname, inst, op1, op2){}
 
 void JMoreStmt::compile(){
-  if(label->getName() != NULL){
+  if(label->getName() != nullptr){
     statementObj["Label"] = label->getName();
   }
 

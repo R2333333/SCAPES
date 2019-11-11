@@ -5,7 +5,7 @@
 
 class EndStmt : public Statement {
   public:
-    EndStmt(QString = NULL, QString = NULL, QString = NULL, QString = NULL);
+    EndStmt(QString = nullptr, QString = nullptr, QString = nullptr, QString = nullptr);
     void compile();
     void run();
 

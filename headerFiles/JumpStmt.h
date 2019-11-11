@@ -5,7 +5,7 @@
 
 class JumpStmt : public Statement {
   public:
-    JumpStmt(QString = NULL, QString = NULL, QString = NULL, QString = NULL);
+    JumpStmt(QString = nullptr, QString = nullptr, QString = nullptr, QString = nullptr);
     void compile();
     void run();
 
