@@ -4,7 +4,7 @@ Identifier::Identifier(QString n){
   name = n;
 }
 
-//Identifier::~Identifier(){}
+Identifier::~Identifier(){}
 
 QString Identifier::getName(){
   return name;

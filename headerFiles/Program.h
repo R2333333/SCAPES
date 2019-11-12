@@ -18,6 +18,7 @@
 class Program{
   public:
     Program(QString);
+    ~Program();
     void compile();
     void print();
     void setFileName(QString);
@@ -31,6 +32,7 @@ class Program{
     int comparisonFlag;
     Identifier **identifier;
     Statement **statement;
+    Statement *stat;
 };
 
 #endif

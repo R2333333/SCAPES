@@ -10,6 +10,7 @@ class Identifier{
   public:
 
           Identifier(QString=nullptr);
+          ~Identifier();
           QJsonObject getObj(){return identifierObj;}
           virtual QString getName();
 

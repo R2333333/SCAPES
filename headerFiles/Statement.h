@@ -18,7 +18,7 @@ public:
   virtual QString getFirstOperand();
   virtual QString getSecondOperand();
   virtual QJsonObject getObj();
-  //virtual ~Statement();
+  virtual ~Statement();
 
 protected:
   Operand *operand1, *operand2;

@@ -9,6 +9,12 @@ Program::Program(QString fileName){
 }
 
 //compile each statement
+Program::~Program(){
+  delete statement;
+  delete identifier;
+  delete stat;
+  //qDebug() << "Program destructor" << endl;
+}
 
 void Program::compile(){
 
@@ -59,7 +65,7 @@ void Program::compile(){
                         QMessageBox::warning(nullptr, "Error", QString("Too many arguments in dci in line %1, fail to compile!!!").arg(lineCount));
                         break;
                     }
-                    Statement *stat = new DeclIntStmt(list.at(0), list.at(2), list.at(3), nullptr);
+                    /*Statement **/stat = new DeclIntStmt(list.at(0), list.at(2), list.at(3), nullptr);
                     stat->compile();
                     statArray.append(stat->getObj());
                     QJsonObject identifier;
@@ -75,7 +81,7 @@ void Program::compile(){
                         QMessageBox::warning(nullptr, "Error", QString("Too many arguments in rdi in line %1, fail to compile!!!").arg(lineCount));
                         break;
                     }
-                    Statement *stat = new ReadStmt(list.at(0), list.at(2), list.at(3), nullptr);
+                    /*Statement **/stat = new ReadStmt(list.at(0), list.at(2), list.at(3), nullptr);
                     stat->compile();
                     statArray.append(stat->getObj());
                     QJsonObject identifier;
@@ -91,7 +97,7 @@ void Program::compile(){
                         QMessageBox::warning(nullptr, "Error", QString("Too many arguments in prt in line %1, fail to compile!!!").arg(lineCount));
                         break;
                     }
-                    Statement *stat = new PrintStmt(list.at(0), list.at(2), list.at(3), nullptr);
+                    /*Statement **/stat = new PrintStmt(list.at(0), list.at(2), list.at(3), nullptr);
                     stat->compile();
                     statArray.append(stat->getObj());
                     QJsonObject identifier;
@@ -107,7 +113,7 @@ void Program::compile(){
                         QMessageBox::warning(nullptr, "Error", QString("Too many arguments in jmr in line %1, fail to compile!!!").arg(lineCount));
                         break;
                     }
-                    Statement *stat = new JMoreStmt(list.at(0), list.at(2), list.at(3), nullptr);
+                    /*Statement **/stat = new JMoreStmt(list.at(0), list.at(2), list.at(3), nullptr);
                     stat->compile();
                     statArray.append(stat->getObj());
                     QJsonObject identifier;
@@ -123,7 +129,7 @@ void Program::compile(){
                         QMessageBox::warning(nullptr, "Error", QString("Too many arguments in jmp in line %1, fail to compile!!!").arg(lineCount));
                         break;
                     }
-                    Statement *stat = new JumpStmt(list.at(0), list.at(2), list.at(3), nullptr);
+                    /*Statement **/stat = new JumpStmt(list.at(0), list.at(2), list.at(3), nullptr);
                     stat->compile();
                     statArray.append(stat->getObj());
                     QJsonObject identifier;
@@ -139,7 +145,7 @@ void Program::compile(){
                         QMessageBox::warning(nullptr, "Error", QString("Too many arguments in cmp in line %1, fail to compile!!!").arg(lineCount));
                         break;
                     }
-                    Statement *stat = new CompStmt(list.at(0), list.at(2), list.at(3), list.at(4));
+                    /*Statement **/stat = new CompStmt(list.at(0), list.at(2), list.at(3), list.at(4));
                     stat->compile();
                     statArray.append(stat->getObj());
                     QJsonObject identifier;
@@ -152,7 +158,7 @@ void Program::compile(){
                         QMessageBox::warning(nullptr, "Error", QString("Too many arguments in end in line %1, fail to compile!!!").arg(lineCount));
                         break;
                     }
-                    Statement *stat = new EndStmt(list.at(0), list.at(2), nullptr, nullptr);
+                    /*Statement **/stat = new EndStmt(list.at(0), list.at(2), nullptr, nullptr);
                     stat->compile();
                     statArray.append(stat->getObj());
                     QJsonObject identifier;
@@ -174,7 +180,7 @@ void Program::compile(){
                         QMessageBox::warning(nullptr, "Error", QString("Too many arguments in dci in line %1, fail to compile!!!").arg(lineCount));
                         break;
                     }
-                    Statement *stat = new DeclIntStmt(nullptr, list.at(0), list.at(1), nullptr);
+                    /*Statement **/stat = new DeclIntStmt(nullptr, list.at(0), list.at(1), nullptr);
                     stat->compile();
                     statArray.append(stat->getObj());
                     continue;
@@ -186,7 +192,7 @@ void Program::compile(){
                         QMessageBox::warning(nullptr, "Error", QString("Too many arguments in rdi in line %1, fail to compile!!!").arg(lineCount));
                         break;
                     }
-                    Statement *stat = new ReadStmt(nullptr, list.at(0), list.at(1), nullptr);
+                    /*Statement **/stat = new ReadStmt(nullptr, list.at(0), list.at(1), nullptr);
                     stat->compile();
                     statArray.append(stat->getObj());
                     continue;
@@ -198,7 +204,7 @@ void Program::compile(){
                         QMessageBox::warning(nullptr, "Error", QString("Too many arguments in prt in line %1, fail to compile!!!").arg(lineCount));
                         break;
                     }
-                    Statement *stat = new PrintStmt(nullptr, list.at(0), list.at(1), nullptr);
+                    /*Statement **/stat = new PrintStmt(nullptr, list.at(0), list.at(1), nullptr);
                     stat->compile();
                     statArray.append(stat->getObj());
                     continue;
@@ -210,7 +216,7 @@ void Program::compile(){
                         QMessageBox::warning(nullptr, "Error", QString("Too many arguments in jmr in line %1, fail to compile!!!").arg(lineCount));
                         break;
                     }
-                    Statement *stat = new JMoreStmt(nullptr, list.at(0), list.at(1), nullptr);
+                    /*Statement **/stat = new JMoreStmt(nullptr, list.at(0), list.at(1), nullptr);
                     stat->compile();
                     statArray.append(stat->getObj());
                     continue;
@@ -222,7 +228,7 @@ void Program::compile(){
                         QMessageBox::warning(nullptr, "Error", QString("Too many arguments in jmp in line %1, fail to compile!!!").arg(lineCount));
                         break;
                     }
-                    Statement *stat = new JumpStmt(nullptr, list.at(0), list.at(1), nullptr);
+                    /*Statement **/stat = new JumpStmt(nullptr, list.at(0), list.at(1), nullptr);
                     stat->compile();
                     statArray.append(stat->getObj());
                     continue;
@@ -234,7 +240,7 @@ void Program::compile(){
                         QMessageBox::warning(nullptr, "Error", QString("Too many arguments in cmp in line %1, fail to compile!!!").arg(lineCount));
                         break;
                     }
-                    Statement *stat = new CompStmt(nullptr, list.at(0), list.at(1), list.at(2));
+                    /*Statement **/stat = new CompStmt(nullptr, list.at(0), list.at(1), list.at(2));
                     stat->compile();
                     statArray.append(stat->getObj());
                     continue;
@@ -245,7 +251,7 @@ void Program::compile(){
             }
         }else{ //The line with only one word
             if(list.at(0) == "end"){
-                Statement *stat = new EndStmt(nullptr, list.at(0), nullptr, nullptr);
+                /*Statement **/stat = new EndStmt(nullptr, list.at(0), nullptr, nullptr);
                 stat->compile();
                 statArray.append(stat->getObj());
                 QMessageBox::warning(nullptr, "Done", "Compile Success!");
