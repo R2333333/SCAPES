@@ -6,5 +6,6 @@
 class Label : public Identifier{
   public:
     Label(QString);
+    ~Label();
 };
 #endif

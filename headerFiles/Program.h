@@ -18,6 +18,7 @@
 class Program{
   public:
     Program(QString);
+    ~Program();
     void compile();
     void print();
     void setFileName(QString);

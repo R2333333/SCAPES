@@ -6,9 +6,15 @@ using namespace std;
 
 Program::Program(QString fileName){
     this->fileName = fileName;
+    qDebug() << "Program constructor" << endl;
 }
 
 //compile each statement
+Program::~Program(){
+  delete *identifier;
+  delete *statement;
+  qDebug() << "Program destructor" << endl;
+}
 
 void Program::compile(){
 
@@ -274,6 +280,16 @@ void Program::compile(){
     programObj["identifiers"] = identArray;
 
     qDebug() << endl << programObj << endl;
+
+    // for(int i = 0; i<statArray.size();i++){
+    //   delete statArray[i];
+    // }
+    //
+    // for(int i = 0; i<identArray.size();i++){
+    //   delete identArray[i];
+    // }
+    // delete identArray;
+    // delete statArray;
     //qDebug() << "WTF" << endl;
 }
 
