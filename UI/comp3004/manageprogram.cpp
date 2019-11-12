@@ -12,6 +12,7 @@ ManageProgram::ManageProgram(QWidget *parent) :
 ManageProgram::~ManageProgram()
 {
     delete ui;
+    delete enterFileName;
 }
 
 void ManageProgram::on_Create_clicked()

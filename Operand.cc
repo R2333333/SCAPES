@@ -3,11 +3,11 @@
 Operand::Operand(QString n){
   name = n;
   createIdent();
-  qDebug() << "Operand constructor" << endl;
 }
 
 Operand::~Operand(){
-qDebug() << "Operand destructor" << endl;
+  delete identifier;
+//qDebug() << "Operand destructor" << endl;
 }
 
 void Operand::createIdent(){
