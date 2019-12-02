@@ -31,6 +31,7 @@ class Program{
     int comparisonFlag;
     Identifier **identifier;
     Statement **statement;
+    Statement *stat;
 };
 
 #endif

@@ -1,10 +1,10 @@
-#include "../headerFiles/JEqStmt.h"
+#include "../headerFiles/MoveStmt.h"
 using namespace std;
 
-JEqStmt::JEqStmt(QString labelname, QString inst, QString op1, QString op2)
+MoveStmt::MoveStmt(QString labelname, QString inst, QString op1, QString op2)
   :Statement(labelname, inst, op1, op2){}
 
-void JEqStmt::compile(){
+void MoveStmt::compile(){
   if(label->getName() != nullptr){
     statementObj["Label"] = label->getName();
   }
@@ -12,6 +12,8 @@ void JEqStmt::compile(){
   statementObj["Instruction"] = instruction;
 
   statementObj["Operand1"] = this->getFirstOperand();
+
+  statementObj["Operand2"] = this->getSecondOperand();
 }
 
-void JEqStmt::run(){};
+void MoveStmt::run(){};

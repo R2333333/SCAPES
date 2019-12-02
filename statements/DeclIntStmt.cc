@@ -15,4 +15,7 @@ void DeclIntStmt::compile(){
 
 }
 
-void DeclIntStmt::run(){}
+void DeclIntStmt::run(){
+  Variable *a = new Variable(this->getFirstOperand(), NULL, "int");
+  map->insert("a", a);
+}

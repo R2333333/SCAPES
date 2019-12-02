@@ -8,14 +8,11 @@ using namespace std;
 
 class Identifier{
   public:
-
           Identifier(QString=nullptr);
-          QJsonObject getObj(){return identifierObj;}
           virtual QString getName();
 
-  private:
+  protected:
           QString name;
-          QJsonObject identifierObj;
 
 };
 

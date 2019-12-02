@@ -4,6 +4,7 @@
 #include "Label.h"
 #include "Operand.h"
 #include <QJsonObject>
+#include <QMap>
 
 using namespace std;
 
@@ -18,12 +19,14 @@ public:
   virtual QString getFirstOperand();
   virtual QString getSecondOperand();
   virtual QJsonObject getObj();
+  //void setMap(map<QString, Identifier>);
   //virtual ~Statement();
 
 protected:
   Operand *operand1, *operand2;
   Label *label;
   Program *program;
+  QMap<QString, Identifier*> *map;
   QString instruction;
   QJsonObject statementObj;
 
