@@ -14,15 +14,14 @@ class Program;
 
 class Statement{
 public:
-  Statement(QString = nullptr, QString = nullptr, QString = nullptr, QString = nullptr);
-  virtual void compile() = 0;
+  Statement();
+  virtual void compile(QString) = 0;
   virtual void run() = 0;
   virtual QString getInstruction();
   virtual QString getFirstOperand();
   virtual QString getSecondOperand();
   virtual QJsonObject getObj();
-  //void setMap(map<QString, Identifier>);
-  //virtual ~Statement();
+  virtual ~Statement();
 
 protected:
   Operand *operand1, *operand2;

@@ -1,0 +1,4 @@
+cd UI/output
+make
+make clean
+cd ../../

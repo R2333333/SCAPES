@@ -13,6 +13,7 @@ TextEditor::TextEditor(QWidget *parent, QString fileName) :
 TextEditor::~TextEditor()
 {
     delete ui;
+    delete compileControl;
 }
 
 void TextEditor::setBuff(QString buff){
@@ -53,4 +54,3 @@ void TextEditor::on_actionCompile_triggered()
     RepositoryControl *repoCon = new RepositoryControl();
     repoCon->save(this,outputName,outputJson);
 }
-

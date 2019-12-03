@@ -31,6 +31,7 @@ private:
     Ui::TextEditor *ui;
     QString fileToSave;
     QString buff;
+    CompileControl *compileControl;
 };
 
 #endif // TEXTEDITOR_H

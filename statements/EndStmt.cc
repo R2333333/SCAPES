@@ -1,10 +1,9 @@
 #include "../headerFiles/EndStmt.h"
 using namespace std;
 
-EndStmt::EndStmt(QString labelname, QString inst, QString op1, QString op2)
-  :Statement(labelname, inst, op1, op2){}
+EndStmt::EndStmt(){}
 
-void EndStmt::compile(){
+void EndStmt::compile(QString stat){
   if(label->getName() != nullptr){
     statementObj["Label"] = label->getName();
   }

@@ -12,6 +12,7 @@ void JLessStmt::compile(){
   statementObj["Instruction"] = instruction;
 
   statementObj["Operand1"] = this->getFirstOperand();
+
 }
 
-void JLessStmt::run(){};
+void JLessStmt::run(){}

@@ -14,10 +14,12 @@
 #include <QJsonArray>
 #include <QFile>
 #include <QMessageBox>
+#include <QLinkedList>
 
 class Program{
   public:
     Program(QString);
+    ~Program();
     void compile();
     void print();
     void setFileName(QString);
@@ -30,7 +32,7 @@ class Program{
     QString fileName;
     int comparisonFlag;
     Identifier **identifier;
-    Statement **statement;
+    QLinkedList<Statement*> statements;
     Statement *stat;
 };
 

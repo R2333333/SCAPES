@@ -1,10 +1,5 @@
 #include "headerFiles/Label.h"
 
-Label::Label(QString name)
-  :Identifier(name){
-  //setLine(line);
-}
-
 void Label::setLine(int num){
   line = num;
 }
@@ -12,3 +7,11 @@ void Label::setLine(int num){
 int Label::getLine(){
   return line;
 }
+
+Label::Label(QString n, int line){
+    QStringList l = n.split("[(:| )]");
+    name = l[0];
+    this->line = line;
+}
+
+Label::~Label(){}

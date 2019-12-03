@@ -14,7 +14,6 @@ void AddStmt::compile(){
   statementObj["Operand1"] = this->getFirstOperand();
 
   statementObj["Operand2"] = this->getSecondOperand();
-
 }
 
 void AddStmt::run(){}

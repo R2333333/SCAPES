@@ -22,3 +22,4 @@ void DeclArrStmt::run(){
     a->setArr(this->getSecondOperand().toInt());
     map->insert("a", a);
 }
+

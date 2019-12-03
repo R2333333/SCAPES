@@ -12,6 +12,7 @@ void JEqStmt::compile(){
   statementObj["Instruction"] = instruction;
 
   statementObj["Operand1"] = this->getFirstOperand();
+
 }
 
-void JEqStmt::run(){};
+void JEqStmt::run(){}

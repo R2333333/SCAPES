@@ -5,12 +5,14 @@
 
 class Label : public Identifier{
   public:
-    Label(QString);
     void setLine(int);
-    int getLine();
     void setValue(int){}
     QString getType(){return "Label";}
     void addArrElement(int){}
+    Label(QString, int);
+    int getLine();
+    ~Label();
+
   private:
     int line;
 };

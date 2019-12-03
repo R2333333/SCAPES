@@ -5,8 +5,8 @@
 
 class ReadStmt : public Statement {
   public:
-    ReadStmt(QString = nullptr, QString = nullptr, QString = nullptr, QString = nullptr);
-    void compile();
+    ReadStmt();
+    void compile(QString);
     void run();
 
 };
