@@ -1,13 +1,15 @@
 #include "../headerFiles/DeclArrStmt.h"
 using namespace std;
 
-DeclArrStmt::DeclArrStmt(QString labelname, QString inst, QString op1, QString op2)
-  :Statement(labelname, inst, op1, op2){}
+DeclArrStmt::DeclArrStmt(){}
 
-void DeclArrStmt::compile(){
-  if(label->getName() != nullptr){
-    statementObj["Label"] = label->getName();
-  }
+void DeclArrStmt::compile(QString stat){
+  QStringList list = stat.split(" ");
+
+  instruction = list.at(0);
+
+  operand1 = new Operand(list.at(1));
+  operand2 = new Operand(list.at(2));
 
   statementObj["Instruction"] = instruction;
 

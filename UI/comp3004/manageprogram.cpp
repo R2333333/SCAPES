@@ -9,11 +9,11 @@ ManageProgram::ManageProgram(QWidget *parent) :
     setWindowTitle("Manage Program");
 }
 
-ManageProgram::~ManageProgram()
-{
-    delete ui;
-    delete enterFileName;
-}
+//ManageProgram::~ManageProgram()
+//{
+//    delete ui;
+//    delete enterFileName;
+//}
 
 void ManageProgram::on_Create_clicked()
 {

@@ -5,8 +5,8 @@
 
 class JLessStmt : public Statement {
   public:
-    JLessStmt(QString = nullptr, QString = nullptr, QString = nullptr, QString = nullptr);
-    void compile();
+    JLessStmt();
+    void compile(QString);
     void run();
 };
 #endif

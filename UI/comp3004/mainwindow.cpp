@@ -9,10 +9,10 @@ MainWindow::MainWindow(QWidget *parent) :
     setWindowTitle("SCAPES");
 }
 
-MainWindow::~MainWindow()
-{
-    delete ui;
-}
+//MainWindow::~MainWindow()
+//{
+//    delete ui;
+//}
 
 void MainWindow::on_SetPreference_clicked()
 {

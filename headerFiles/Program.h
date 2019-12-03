@@ -4,11 +4,16 @@
 #include <QString>
 #include "Statement.h"
 #include "DeclIntStmt.h"
+#include "DeclArrStmt.h"
 #include "ReadStmt.h"
 #include "PrintStmt.h"
+#include "MoveStmt.h"
+#include "AddStmt.h"
 #include "CompStmt.h"
 #include "JMoreStmt.h"
 #include "JumpStmt.h"
+#include "JLessStmt.h"
+#include "JEqStmt.h"
 #include "EndStmt.h"
 #include <QJsonObject>
 #include <QJsonArray>
@@ -19,7 +24,7 @@
 class Program{
   public:
     Program(QString);
-    ~Program();
+    //~Program();
     void compile();
     void print();
     void setFileName(QString);

@@ -5,8 +5,8 @@
 
 class JEqStmt : public Statement {
   public:
-    JEqStmt(QString = nullptr, QString = nullptr, QString = nullptr, QString = nullptr);
-    void compile();
+    JEqStmt();
+    void compile(QString);
     void run();
 };
 #endif

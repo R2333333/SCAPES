@@ -4,13 +4,14 @@ using namespace std;
 PrintStmt::PrintStmt(){}
 
 void PrintStmt::compile(QString stat){
-  if(label->getName() != nullptr){
-    statementObj["Label"] = label->getName();
-  }
+    QStringList list = stat.split(" ");
 
-  statementObj["Instruction"] = instruction;
+    instruction = list.at(0);
+    operand1 = new Operand(list.at(1));
 
-  statementObj["Operand1"] = this->getFirstOperand();
+    statementObj["Instruction"] = instruction;
+
+    statementObj["Operand1"] = this->getFirstOperand();
 }
 
 void PrintStmt::run(){}
