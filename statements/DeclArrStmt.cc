@@ -17,4 +17,8 @@ void DeclArrStmt::compile(){
 
 }
 
-void DeclArrStmt::run(){}
+void DeclArrStmt::run(){
+    Variable *a = new Variable(this->getFirstOperand(), NULL, "int");
+    a->setArr(this->getSecondOperand().toInt());
+    map->insert("a", a);
+}

@@ -5,6 +5,8 @@
 #include "Operand.h"
 #include <QJsonObject>
 #include <QMap>
+#include <QMessageBox>
+#include <QInputDialog>
 
 using namespace std;
 

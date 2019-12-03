@@ -8,7 +8,9 @@ class Label : public Identifier{
     Label(QString);
     void setLine(int);
     int getLine();
-
+    void setValue(int){}
+    QString getType(){return "Label";}
+    void addArrElement(int){}
   private:
     int line;
 };
