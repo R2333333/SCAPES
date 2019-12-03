@@ -5,8 +5,8 @@
 
 class CompStmt : public Statement {
   public:
-    CompStmt(QString = nullptr, QString = nullptr, QString = nullptr, QString = nullptr);
-    void compile();
+    CompStmt();
+    void compile(QString);
     void run();
 
 };

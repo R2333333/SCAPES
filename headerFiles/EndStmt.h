@@ -5,8 +5,8 @@
 
 class EndStmt : public Statement {
   public:
-    EndStmt(QString = nullptr, QString = nullptr, QString = nullptr, QString = nullptr);
-    void compile();
+    EndStmt();
+    void compile(QString);
     void run();
 
 };

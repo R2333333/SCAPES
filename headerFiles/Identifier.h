@@ -3,6 +3,7 @@
 
 #include <QString>
 #include <QJsonObject>
+#include <QStringList>
 
 using namespace std;
 
@@ -10,13 +11,15 @@ class Identifier{
   public:
 
           Identifier(QString=nullptr);
-          ~Identifier();
-          QJsonObject getObj(){return identifierObj;}
+          virtual ~Identifier();
+          virtual QJsonObject getObj(){return identifierObj;}
           virtual QString getName();
 
   private:
-          QString name;
           QJsonObject identifierObj;
+
+    protected:
+          QString name;
 
 };
 

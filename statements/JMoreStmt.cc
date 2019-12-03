@@ -1,10 +1,9 @@
 #include "../headerFiles/JMoreStmt.h"
 using namespace std;
 
-JMoreStmt::JMoreStmt(QString labelname, QString inst, QString op1, QString op2)
-  :Statement(labelname, inst, op1, op2){}
+JMoreStmt::JMoreStmt(){}
 
-void JMoreStmt::compile(){
+void JMoreStmt::compile(QString stat){
   if(label->getName() != nullptr){
     statementObj["Label"] = label->getName();
   }

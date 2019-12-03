@@ -1,10 +1,9 @@
 #include "../headerFiles/DeclIntStmt.h"
 using namespace std;
 
-DeclIntStmt::DeclIntStmt(QString labelname, QString inst, QString op1, QString op2)
-  :Statement(labelname, inst, op1, op2){}
+DeclIntStmt::DeclIntStmt(){}
 
-void DeclIntStmt::compile(){
+void DeclIntStmt::compile(QString stat){
   if(label->getName() != nullptr){
     statementObj["Label"] = label->getName();
   }

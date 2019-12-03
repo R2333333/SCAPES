@@ -14,6 +14,7 @@
 #include <QJsonArray>
 #include <QFile>
 #include <QMessageBox>
+#include <QLinkedList>
 
 class Program{
   public:
@@ -31,7 +32,7 @@ class Program{
     QString fileName;
     int comparisonFlag;
     Identifier **identifier;
-    Statement **statement;
+    QLinkedList<Statement*> statements;
     Statement *stat;
 };
 
