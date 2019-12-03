@@ -7,17 +7,19 @@
 
 using namespace std;
 
+
 class Identifier{
   public:
           Identifier(QString=nullptr);
           virtual ~Identifier();
           virtual QJsonObject getObj(){return identifierObj;}
           virtual QString getName();
+          //void setName(QString);
           virtual void setValue(int){}
           virtual QString getType(){return "identifier";}
           virtual void addArrElement(int){}
 
-  private:
+  protected:
           QJsonObject identifierObj;
           QString name;
 

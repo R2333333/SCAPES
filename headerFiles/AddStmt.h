@@ -5,8 +5,8 @@
 
 class AddStmt : public Statement {
   public:
-    AddStmt(QString = nullptr, QString = nullptr, QString = nullptr, QString = nullptr);
-    void compile();
+    AddStmt();
+    void compile(QString);
     void run();
 };
 #endif

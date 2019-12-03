@@ -9,11 +9,13 @@ class Label : public Identifier{
     void setValue(int){}
     QString getType(){return "Label";}
     void addArrElement(int){}
+    QString getIns();
     Label(QString, int);
     int getLine();
-    ~Label();
+    //~Label();
 
   private:
     int line;
+    QString restStat = "";
 };
 #endif

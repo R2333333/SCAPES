@@ -16,7 +16,7 @@ class ManageProgram : public QDialog
 
 public:
     explicit ManageProgram(QWidget *parent = nullptr);
-    ~ManageProgram();
+    //~ManageProgram();
 
 private slots:
 

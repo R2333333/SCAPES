@@ -1,18 +1,17 @@
 #include "../headerFiles/JLessStmt.h"
 using namespace std;
 
-JLessStmt::JLessStmt(QString labelname, QString inst, QString op1, QString op2)
-  :Statement(labelname, inst, op1, op2){}
+JLessStmt::JLessStmt(){}
 
-void JLessStmt::compile(){
-  if(label->getName() != nullptr){
-    statementObj["Label"] = label->getName();
-  }
+void JLessStmt::compile(QString stat){
+    QStringList list = stat.split(" ");
 
-  statementObj["Instruction"] = instruction;
+    instruction = list.at(0);
+    operand1 = new Operand(list.at(1));
 
-  statementObj["Operand1"] = this->getFirstOperand();
+    statementObj["Instruction"] = instruction;
 
+    statementObj["Operand1"] = this->getFirstOperand();
 }
 
 void JLessStmt::run(){}

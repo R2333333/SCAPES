@@ -8,11 +8,11 @@ Program::Program(QString fileName){
 }
 
 //compile each statement
-Program::~Program(){
-  delete identifier;
-  delete stat;
-  //qDebug() << "Program destructor" << endl;
-}
+//Program::~Program(){
+//  delete identifier;
+//  delete stat;
+//  //qDebug() << "Program destructor" << endl;
+//}
 
 void Program::compile(){
 
@@ -39,34 +39,81 @@ void Program::compile(){
         }
 
         if (s.startsWith("L")){
-           Identifier *l = new Label(s, lineCount);
-           identArray.append(" ");
-        }
-
-        if (s.startsWith("rdi")){
-            stat = new ReadStmt();
-            stat->compile(s);
+           Label *l = new Label(s, lineCount);
+           identArray.append(l->getObj());
+           s = l->getIns();
         }
 
         if (s.startsWith("dci")){
             stat = new DeclIntStmt();
             stat->compile(s);
+            statArray.append(stat->getObj());
         }
+
+        if (s.startsWith("dca")){
+            stat = new DeclArrStmt();
+            stat->compile(s);
+            statArray.append(stat->getObj());
+        }
+
+        if (s.startsWith("rdi")){
+            stat = new ReadStmt();
+            stat->compile(s);
+            statArray.append(stat->getObj());
+        }
+
         if (s.startsWith("prt")){
             stat = new PrintStmt();
             stat->compile(s);
+            statArray.append(stat->getObj());
         }
-        if (s.startsWith("jmr")){
-            stat = new JumpStmt();
+
+        if (s.startsWith("mov")){
+            stat = new MoveStmt();
             stat->compile(s);
+            statArray.append(stat->getObj());
         }
+
+        if (s.startsWith("add")){
+            stat = new AddStmt();
+            stat->compile(s);
+            statArray.append(stat->getObj());
+        }
+
         if (s.startsWith("cmp")){
             stat = new CompStmt();
             stat->compile(s);
+            statArray.append(stat->getObj());
         }
+
+        if (s.startsWith("jls")){
+            stat = new JLessStmt();
+            stat->compile(s);
+            statArray.append(stat->getObj());
+        }
+
+        if (s.startsWith("jmr")){
+            stat = new JMoreStmt();
+            stat->compile(s);
+            statArray.append(stat->getObj());
+        }
+
+        if (s.startsWith("jeq")){
+            stat = new JEqStmt();
+            stat->compile(s);
+            statArray.append(stat->getObj());
+        }
+
+        if (s.startsWith("jmp")){
+            stat = new JumpStmt();
+            stat->compile(s);
+            statArray.append(stat->getObj());
+        }
+
         if (s.startsWith("end")){
             stat = new EndStmt();
             stat->compile(s);
+            statArray.append(stat->getObj());
         }
 
         statements.push_back(stat);

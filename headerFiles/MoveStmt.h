@@ -5,8 +5,8 @@
 
 class MoveStmt : public Statement {
   public:
-    MoveStmt(QString = nullptr, QString = nullptr, QString = nullptr, QString = nullptr);
-    void compile();
+    MoveStmt();
+    void compile(QString);
     void run();
 };
 #endif

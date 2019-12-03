@@ -6,15 +6,12 @@ using namespace std;
 
 #include "../headerFiles/Statement.h"
 
-Statement::Statement(){
+Statement::Statement(){}
 
-  //qDebug() << "Statement constructor" << endl;
-}
-
-Statement::~Statement(){
-  delete operand1;
-  delete operand2;
-}
+//Statement::~Statement(){
+//  delete operand1;
+//  delete operand2;
+//}
 
 QJsonObject Statement::getObj(){
   return statementObj;
