@@ -1,5 +1,6 @@
 #include "headerFiles/Program.h"
 #include <QDebug>
+#include <iterator>
 
 using namespace std;
 
@@ -137,6 +138,25 @@ void Program::compile(){
 
     qDebug() << endl << programObj << endl;
     //qDebug() << "WTF" << endl;
+}
+
+void Program::run(){
+    QFile inputFile(getFileName());
+    inputFile.open(QFile::ReadOnly);
+    QTextStream in(&inputFile);
+    QJsonDocument doc =QJsonDocument::fromJson(in.readAll().toUtf8());
+    QJsonObject obj = doc.object();
+
+    QMap<QString, Label*> labelMap;
+    QMap<QString, Variable*> varibleMap;
+
+    foreach (const QJsonValue &value, obj["labels"].toArray()){
+        labelMap.insert(value["Label"].toString(), new Label(value["Label"].toString(), value["LineNo."].toInt()));
+    }
+
+    foreach (const QJsonValue &value, obj["statements"].toArray()){
+    }
+
 }
 
 QJsonObject Program::getQjsonobj(){

@@ -20,12 +20,15 @@
 #include <QFile>
 #include <QMessageBox>
 #include <QLinkedList>
+#include <QJsonDocument>
+#include <QMap>
 
 class Program{
   public:
     Program(QString);
     //~Program();
     void compile();
+    void run();
     void print();
     void setFileName(QString);
     QString getFileName();
