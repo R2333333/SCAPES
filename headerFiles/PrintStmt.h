@@ -5,8 +5,8 @@
 
 class PrintStmt : public Statement {
   public:
-    PrintStmt(QString = nullptr, QString = nullptr, QString = nullptr, QString = nullptr);
-    void compile();
+    PrintStmt();
+    void compile(QString);
     void run();
 
 };

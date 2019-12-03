@@ -2,10 +2,9 @@
 #include <QDebug>
 using namespace std;
 
-CompStmt::CompStmt(QString labelname, QString inst, QString op1, QString op2)
-  :Statement(labelname, inst, op1, op2){}
+CompStmt::CompStmt(){}
 
-void CompStmt::compile(){
+void CompStmt::compile(QString stat){
   
   if(label->getName() != nullptr){
     statementObj["Label"] = label->getName();

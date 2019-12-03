@@ -1,10 +1,9 @@
 #include "../headerFiles/JumpStmt.h"
 using namespace std;
 
-JumpStmt::JumpStmt(QString labelname, QString inst, QString op1, QString op2)
-  :Statement(labelname, inst, op1, op2){}
+JumpStmt::JumpStmt(){}
 
-void JumpStmt::compile(){
+void JumpStmt::compile(QString stat){
   if(label->getName() != nullptr){
     statementObj["Label"] = label->getName();
   }

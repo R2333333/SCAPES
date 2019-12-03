@@ -11,8 +11,8 @@ class Program;
 
 class Statement{
 public:
-  Statement(QString = nullptr, QString = nullptr, QString = nullptr, QString = nullptr);
-  virtual void compile() = 0;
+  Statement();
+  virtual void compile(QString) = 0;
   virtual void run() = 0;
   virtual QString getInstruction();
   virtual QString getFirstOperand();
