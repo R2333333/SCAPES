@@ -19,7 +19,7 @@ void Program::compile(){
     int lineCount = 0;
     QFile inputFile(getFileName());
     QJsonArray statArray;
-    QJsonArray identArray;
+    QJsonArray labelArray;
 
     inputFile.open(QFile::ReadOnly);
 
@@ -40,7 +40,7 @@ void Program::compile(){
 
         if (s.startsWith("L")){
            Label *l = new Label(s, lineCount);
-           identArray.append(l->getObj());
+           labelArray.append(l->getObj());
            s = l->getIns();
         }
 
@@ -133,7 +133,7 @@ void Program::compile(){
     //    }
 
     programObj["statements"] = statArray;
-    programObj["identifiers"] = identArray;
+    programObj["labels"] = labelArray;
 
     qDebug() << endl << programObj << endl;
     //qDebug() << "WTF" << endl;
