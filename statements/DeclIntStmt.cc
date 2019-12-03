@@ -14,4 +14,7 @@ void DeclIntStmt::compile(QString stat){
 
 }
 
-void DeclIntStmt::run(){}
+void DeclIntStmt::run(){
+  Variable *a = new Variable(this->getFirstOperand(), NULL, "int");
+  map->insert("a", a);
+}

@@ -29,14 +29,20 @@ SOURCES += \
         ../../Label.cc \
         ../../Operand.cc \
         ../../Program.cc \
+        ../../Variable.cc \
         ../../compiler/CompileControl.cc \
         ../../repository/Repository.cc \
         ../../repository/RepositoryControl.cc \
+        ../../statements/AddStmt.cc \
         ../../statements/CompStmt.cc \
+        ../../statements/DeclArrStmt.cc \
         ../../statements/DeclIntStmt.cc \
         ../../statements/EndStmt.cc \
+        ../../statements/JEqStmt.cc \
+        ../../statements/JLessStmt.cc \
         ../../statements/JMoreStmt.cc \
         ../../statements/JumpStmt.cc \
+        ../../statements/MoveStmt.cc \
         ../../statements/PrintStmt.cc \
         ../../statements/ReadStmt.cc \
         ../../statements/Statement.cc \
@@ -47,14 +53,19 @@ SOURCES += \
         texteditor.cpp
 
 HEADERS += \
+        ../../headerFiles/AddStmt.h \
         ../../headerFiles/CompStmt.h \
         ../../headerFiles/CompileControl.h \
+        ../../headerFiles/DeclArrStmt.h \
         ../../headerFiles/DeclIntStmt.h \
         ../../headerFiles/EndStmt.h \
         ../../headerFiles/Identifier.h \
+        ../../headerFiles/JEqStmt.h \
+        ../../headerFiles/JLessStmt.h \
         ../../headerFiles/JMoreStmt.h \
         ../../headerFiles/JumpStmt.h \
         ../../headerFiles/Label.h \
+        ../../headerFiles/MoveStmt.h \
         ../../headerFiles/Operand.h \
         ../../headerFiles/PrintStmt.h \
         ../../headerFiles/Program.h \

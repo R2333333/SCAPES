@@ -16,4 +16,4 @@ void MoveStmt::compile(){
   statementObj["Operand2"] = this->getSecondOperand();
 }
 
-void MoveStmt::run(){}
+void MoveStmt::run(){};

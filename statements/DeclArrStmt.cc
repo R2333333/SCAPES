@@ -14,6 +14,12 @@ void DeclArrStmt::compile(){
   statementObj["Operand1"] = this->getFirstOperand();
 
   statementObj["Operand2"] = this->getSecondOperand();
+
 }
 
-void DeclArrStmt::run(){}
+void DeclArrStmt::run(){
+    Variable *a = new Variable(this->getFirstOperand(), NULL, "int");
+    a->setArr(this->getSecondOperand().toInt());
+    map->insert("a", a);
+}
+

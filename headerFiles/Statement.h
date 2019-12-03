@@ -4,6 +4,9 @@
 #include "Label.h"
 #include "Operand.h"
 #include <QJsonObject>
+#include <QMap>
+#include <QMessageBox>
+#include <QInputDialog>
 
 using namespace std;
 
@@ -24,6 +27,7 @@ protected:
   Operand *operand1, *operand2;
   Label *label;
   Program *program;
+  QMap<QString, Identifier*> *map;
   QString instruction;
   QJsonObject statementObj;
 
