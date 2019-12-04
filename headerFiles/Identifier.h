@@ -17,6 +17,7 @@ class Identifier{
           //void setName(QString);
           virtual void setValue(int){}
           virtual QString getType(){return "identifier";}
+          //virtual void setArr(int);
           virtual void addArrElement(int){}
 
   protected:

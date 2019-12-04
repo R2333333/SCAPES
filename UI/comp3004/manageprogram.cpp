@@ -66,7 +66,7 @@ void ManageProgram::on_Compile_clicked()
     }
 }
 
-void ManageProgram::on_pushButton_clicked()
+void ManageProgram::on_Run_clicked()
 {
     QString fileName = QFileDialog::getOpenFileName(this,"Please Choose File to Compile");
     QFile inputFile(fileName);

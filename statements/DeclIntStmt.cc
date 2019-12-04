@@ -18,6 +18,11 @@ void DeclIntStmt::compile(QString stat){
 }
 #include <QDebug>
 void DeclIntStmt::run(){
-    //qDebug() << operand1->getIdent()->getName();
-  program->getVMap()->insert(operand1->getIdent()->getName(), nullptr);
+
+    if(program->getVMap()->contains(operand1->getIdent()->getName())){
+        QMessageBox::warning(nullptr, "Error", QString("Variable already exists!!!"));
+    }else {
+        Variable *a = new Variable(operand1->getIdent()->getName(), NULL, "int");
+        program->getVMap()->insert(operand1->getIdent()->getName(), a);
+    }
 }

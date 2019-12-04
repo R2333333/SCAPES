@@ -1,4 +1,5 @@
 #include "headerFiles/Variable.h"
+#include <QDebug>
 
 Variable::Variable(QString name, int val, QString type)
     :Identifier(name)
@@ -28,6 +29,14 @@ void Variable::addArrElement(int value){
   arrsize += 1;
 }
 
+void Variable::setArrElement(int index, int value){
+    arr[index] = value;
+}
+
+int Variable::getArrElement(int index){
+    return arr[index];
+}
+
 int Variable::getArrSize(){
   return arrsize;
 }
@@ -38,6 +47,7 @@ int Variable::getValue(){
 
 void Variable::print(){
   for(int i = 0; i < arrsize; i++){
-    cout << arr[i] << endl;
+    cout << arr[i] << " ";
   }
+  cout << endl;
 }

@@ -12,6 +12,7 @@ class Label : public Identifier{
     QString getIns();
     Label(QString, int);
     int getLine();
+    //void setArr(int){}
     //~Label();
 
   private:
