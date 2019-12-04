@@ -1,4 +1,5 @@
 #include "../headerFiles/ReadStmt.h"
+#include "../headerFiles/Program.h"
 using namespace std;
 
 ReadStmt::ReadStmt()
@@ -16,18 +17,19 @@ void ReadStmt::compile(QString stat){
 }
 
 void ReadStmt::run(){
-    if(map->contains(this->getFirstOperand())){
+
+    if(!program->getVMap()->contains(operand1->getIdent()->getName())){
+        QMessageBox::warning(nullptr, "Error", QString("Variable not exists yet!!!"));
+    }else {
         int input = QInputDialog::getInt(nullptr, ("Please enter an integer"), ("Value:"));
 
-        if(map->find(this->getFirstOperand()).value()->getType() == "int"){
-            map->find(this->getFirstOperand()).value()->setValue(input);
+        if(program->getVMap()->value(operand1->getIdent()->getName())->getType().compare("int") == 0){
+            program->getVMap()->value(operand1->getIdent()->getName())->setValue(input);
         }
 
-        if(map->find(this->getFirstOperand()).value()->getType() == "array"){
-            map->find(this->getFirstOperand()).value()->addArrElement(input);
+        if(program->getVMap()->value(operand1->getIdent()->getName())->getType().compare("array") == 0){
+            program->getVMap()->value(operand1->getIdent()->getName())->addArrElement(input);
         }
-
-    }else {
-        QMessageBox::warning(nullptr, "Error", QString("No such variable name being found!"));
     }
+
 }

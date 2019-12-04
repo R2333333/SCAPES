@@ -26,7 +26,7 @@ private slots:
 
     void on_Compile_clicked();
 
-    void on_pushButton_clicked();
+    void on_Run_clicked();
 
 private:
     Ui::ManageProgram *ui;

@@ -234,9 +234,11 @@ void Program::run(){
         }
     }
 
-    qDebug() << labelMap.find("L1").value()->getLine();
-    qDebug() << varibleMap->find("a").key();
-    qDebug() << varibleMap->find("a").value();
+    //qDebug() << labelMap.find("L1").value()->getLine();
+    //qDebug() << varibleMap->find("a").key();
+    //qDebug() << varibleMap->find("a").value()->getType();
+    //qDebug() << varibleMap->find("a").value()->getArrSize();
+    //varibleMap->find("a").value()->print();
 }
 
 QJsonObject Program::getQjsonobj(){

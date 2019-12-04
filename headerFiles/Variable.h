@@ -12,6 +12,8 @@ class Variable : public Identifier{
     void setArr(int);
     void setType(QString);
     void addArrElement(int);
+    void setArrElement(int,int);
+    int getArrElement(int);
     int getArrSize();
     QString getType();
     int getValue();
