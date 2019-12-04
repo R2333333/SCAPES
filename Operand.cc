@@ -18,3 +18,7 @@ void Operand::createIdent(){
 Identifier* Operand::getIdent(){
   return identifier;
 }
+
+//QString Operand::getName(){
+//    return name;
+//}

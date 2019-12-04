@@ -11,6 +11,7 @@ class Operand{
     ~Operand();
     void createIdent();
     Identifier* getIdent();
+    //QString getName();
   private:
     Identifier *identifier;
     QString name;

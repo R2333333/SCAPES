@@ -15,6 +15,10 @@ Program::Program(QString fileName){
 //  //qDebug() << "Program destructor" << endl;
 //}
 
+QMap<QString, Variable*>* Program::getVMap(){
+    return varibleMap;
+}
+
 void Program::compile(){
 
     int lineCount = 0;
@@ -138,6 +142,7 @@ void Program::compile(){
 
     qDebug() << endl << programObj << endl;
     //qDebug() << "WTF" << endl;
+
 }
 
 void Program::run(){
@@ -146,17 +151,92 @@ void Program::run(){
     QTextStream in(&inputFile);
     QJsonDocument doc =QJsonDocument::fromJson(in.readAll().toUtf8());
     QJsonObject obj = doc.object();
-
-    QMap<QString, Label*> labelMap;
-    QMap<QString, Variable*> varibleMap;
-
+    varibleMap = new QMap<QString, Variable*>;
+    //qDebug() << in.readAll();
+    //qDebug() << obj["labels"].toString();
     foreach (const QJsonValue &value, obj["labels"].toArray()){
+        //qDebug() << value.toString();
         labelMap.insert(value["Label"].toString(), new Label(value["Label"].toString(), value["LineNo."].toInt()));
     }
 
     foreach (const QJsonValue &value, obj["statements"].toArray()){
+        if(value["Instruction"].toString().compare("dci") == 0){
+
+            Statement *s = new DeclIntStmt();
+            s->setObj(value, this);
+            s->run();
+        }
+
+        if(value["Instruction"].toString().compare("dca") == 0){
+            Statement *s = new DeclArrStmt();
+            s->setObj(value, this);
+            s->run();
+        }
+
+        if(value["Instruction"].toString().compare("rdi") == 0){
+            Statement *s = new ReadStmt();
+            s->setObj(value, this);
+            s->run();
+        }
+
+        if(value["Instruction"].toString().compare("prt") == 0){
+            Statement *s = new PrintStmt();
+            s->setObj(value, this);
+            s->run();
+        }
+
+        if(value["Instruction"].toString().compare("mov") == 0){
+            Statement *s = new MoveStmt();
+            s->setObj(value, this);
+            s->run();
+        }
+
+        if(value["Instruction"].toString().compare("add") == 0){
+            Statement *s = new AddStmt();
+            s->setObj(value, this);
+            s->run();
+        }
+
+        if(value["Instruction"].toString().compare("cmp") == 0){
+            Statement *s = new CompStmt();
+            s->setObj(value, this);
+            s->run();
+        }
+
+        if(value["Instruction"].toString().compare("jls") == 0){
+            Statement *s = new JLessStmt();
+            s->setObj(value, this);
+            s->run();
+        }
+
+        if(value["Instruction"].toString().compare("jmr") == 0){
+            Statement *s = new JMoreStmt();
+            s->setObj(value, this);
+            s->run();
+        }
+
+        if(value["Instruction"].toString().compare("jeq") == 0){
+            Statement *s = new JEqStmt();
+            s->setObj(value, this);
+            s->run();
+        }
+
+        if(value["Instruction"].toString().compare("jmp") == 0){
+            Statement *s = new JumpStmt();
+            s->setObj(value, this);
+            s->run();
+        }
+
+        if(value["Instruction"].toString().compare("end") == 0){
+            Statement *s = new EndStmt();
+            s->setObj(value, this);
+            s->run();
+        }
     }
 
+    qDebug() << labelMap.find("L1").value()->getLine();
+    qDebug() << varibleMap->find("a").key();
+    qDebug() << varibleMap->find("a").value();
 }
 
 QJsonObject Program::getQjsonobj(){

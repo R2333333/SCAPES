@@ -10,10 +10,10 @@ CompileControl::CompileControl(QString fileName, QString outPutName){
   //qDebug() << "!!!";
 }
 
-CompileControl::~CompileControl(){
-  delete program;
-  //qDebug() << "CompileControl destructor" << endl;
-}
+//CompileControl::~CompileControl(){
+//  delete program;
+//  //qDebug() << "CompileControl destructor" << endl;
+//}
 
 void CompileControl::CreatePgm(){
   program = new Program(filePath);
@@ -23,6 +23,10 @@ void CompileControl::CreatePgm(){
 //compile program by calling the compile function of Program object
 void CompileControl::compile(){
   program->compile();
+}
+
+void CompileControl::run(){
+    program->run();
 }
 
 QJsonObject CompileControl::getQJson(){

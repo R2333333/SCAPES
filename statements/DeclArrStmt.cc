@@ -20,8 +20,8 @@ void DeclArrStmt::compile(QString stat){
 }
 
 void DeclArrStmt::run(){
-    Variable *a = new Variable(this->getFirstOperand(), NULL, "int");
-    a->setArr(this->getSecondOperand().toInt());
-    map->insert("a", a);
+//    Variable *a = new Variable(this->getFirstOperand(), NULL, "int");
+//    a->setArr(this->getSecondOperand().toInt());
+//    map->insert("a", a);
 }
 

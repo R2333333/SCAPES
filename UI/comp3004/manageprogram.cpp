@@ -65,3 +65,32 @@ void ManageProgram::on_Compile_clicked()
         repoCon->save(this,outputName,outputJson);
     }
 }
+
+void ManageProgram::on_pushButton_clicked()
+{
+    QString fileName = QFileDialog::getOpenFileName(this,"Please Choose File to Compile");
+    QFile inputFile(fileName);
+
+    if (!inputFile.open(QFile::ReadOnly)){
+        QMessageBox::warning(nullptr, "Error", "Can not Open file");
+    }else{
+        QString outputName = QFileDialog::getSaveFileName(this, "Please Choose Output File Name");
+        QFile outputFile(outputName);
+        if (!outputFile.open(QFile::ReadOnly)){
+            if(outputName == nullptr){
+                QMessageBox::warning(nullptr, "Error", "No output file");
+                return;
+            }else{
+                RepositoryControl *repoCon = new RepositoryControl();
+                repoCon->create(outputName.toStdString());
+            }
+        }
+        CompileControl *comCon = new CompileControl(fileName,outputName);
+        comCon->run();
+        //QJsonObject outputObj = comCon->getQJson();
+        //QJsonDocument Doc(outputObj);
+        //QString outputJson(Doc.toJson(QJsonDocument::Compact));
+        //RepositoryControl *repoCon = new RepositoryControl();
+        //repoCon->save(this,outputName,outputJson);
+    }
+}
