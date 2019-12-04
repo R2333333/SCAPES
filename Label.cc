@@ -8,8 +8,9 @@ Label::Label(QString n, int l){
             continue;
         }
 
-        if (c == ' '){
+        if (c == ' ' && !start){
             start = true;
+            continue;
         }
 
         if (start){

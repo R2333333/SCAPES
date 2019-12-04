@@ -1,4 +1,5 @@
 #include "../headerFiles/DeclIntStmt.h"
+#include "../headerFiles/Program.h"
 using namespace std;
 
 DeclIntStmt::DeclIntStmt(){}
@@ -15,8 +16,8 @@ void DeclIntStmt::compile(QString stat){
   statementObj["Operand1"] = this->getFirstOperand();
 
 }
-
+#include <QDebug>
 void DeclIntStmt::run(){
-  Variable *a = new Variable(this->getFirstOperand(), NULL, "int");
-  map->insert("a", a);
+    //qDebug() << operand1->getIdent()->getName();
+  program->getVMap()->insert(operand1->getIdent()->getName(), nullptr);
 }

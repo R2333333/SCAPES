@@ -10,12 +10,13 @@ using namespace std;
 class CompileControl{
   public:
     CompileControl(QString filePath, QString outPutName);
-	  void compile();
+    void compile();
     QJsonObject getQJson();
     //QString GetSource();
     void CreatePgm();
-	  void storePgm();
-    ~CompileControl();
+    void storePgm();
+    void run();
+    //~CompileControl();
   private:
 
       RepositoryControl *repository;

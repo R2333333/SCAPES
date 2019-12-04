@@ -3,10 +3,12 @@
 #include <QString>
 #include "Label.h"
 #include "Operand.h"
+//#include "Program.h"
 #include <QJsonObject>
 #include <QMap>
 #include <QMessageBox>
 #include <QInputDialog>
+
 
 using namespace std;
 
@@ -20,6 +22,7 @@ public:
   virtual QString getInstruction();
   virtual QString getFirstOperand();
   virtual QString getSecondOperand();
+  void setObj(QJsonValue, Program*);
   virtual QJsonObject getObj();
   //virtual ~Statement();
 
