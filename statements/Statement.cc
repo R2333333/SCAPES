@@ -29,6 +29,17 @@ void Statement::setObj(QJsonValue obj, Program* p){
     program = p;
 }
 
+bool Statement::checkNum(QString s){
+    bool isNumeric1 = true;
+
+    for (QChar c : s){ //input1 is an integer
+        if (!c.isNumber()){
+            isNumeric1 = false;
+        }
+    }
+    return isNumeric1;
+}
+
 QJsonObject Statement::getObj(){
   return statementObj;
 }

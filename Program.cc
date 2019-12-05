@@ -15,6 +15,10 @@ Program::Program(QString fileName){
 //  //qDebug() << "Program destructor" << endl;
 //}
 
+QMap<QString, Label*>* Program::getLMap(){
+    return labelMap;
+}
+
 QMap<QString, Variable*>* Program::getVMap(){
     return varibleMap;
 }
@@ -156,7 +160,7 @@ void Program::run(){
     //qDebug() << obj["labels"].toString();
     foreach (const QJsonValue &value, obj["labels"].toArray()){
         //qDebug() << value.toString();
-        labelMap.insert(value["Label"].toString(), new Label(value["Label"].toString(), value["LineNo."].toInt()));
+        labelMap->insert(value["Label"].toString(), new Label(value["Label"].toString(), value["LineNo."].toInt()));
     }
 
     foreach (const QJsonValue &value, obj["statements"].toArray()){
@@ -239,6 +243,7 @@ void Program::run(){
     //qDebug() << varibleMap->find("a").value()->getType();
     //qDebug() << varibleMap->find("a").value()->getArrSize();
     //varibleMap->find("a").value()->print();
+    //cout << getComparisonFlag() << endl;
 }
 
 QJsonObject Program::getQjsonobj(){
@@ -255,3 +260,7 @@ void Program::setFileName(QString fileName){}
 QString Program::getFileName(){return this->fileName;}
 
 int Program::getComparisonFlag(){return this->comparisonFlag;}
+
+void Program::setComparisonFlag(int c){
+    comparisonFlag = c;
+}

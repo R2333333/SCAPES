@@ -33,8 +33,10 @@ class Program{
     void setFileName(QString);
     QString getFileName();
     int getComparisonFlag();
+    void setComparisonFlag(int);
     QJsonObject getQjsonobj();
     QMap<QString, Variable*>* getVMap();
+    QMap<QString, Label*>* getLMap();
 
   private:
     QJsonObject programObj;
@@ -43,7 +45,7 @@ class Program{
     Identifier **identifier;
     QLinkedList<Statement*> statements;
     Statement *stat;
-    QMap<QString, Label*> labelMap;
+    QMap<QString, Label*> *labelMap;
     QMap<QString, Variable*> *varibleMap;
 };
 

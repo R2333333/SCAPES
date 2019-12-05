@@ -23,6 +23,7 @@ public:
   virtual QString getFirstOperand();
   virtual QString getSecondOperand();
   void setObj(QJsonValue, Program*);
+  bool checkNum(QString);
   virtual QJsonObject getObj();
   //virtual ~Statement();
 

@@ -1,4 +1,5 @@
 #include "../headerFiles/JLessStmt.h"
+#include "../headerFiles/Program.h"
 using namespace std;
 
 JLessStmt::JLessStmt(){}
@@ -14,4 +15,10 @@ void JLessStmt::compile(QString stat){
     statementObj["Operand1"] = this->getFirstOperand();
 }
 
-void JLessStmt::run(){}
+void JLessStmt::run(){
+    if(program->getComparisonFlag() != -1){
+        return;
+    }else{
+        //program->getLMap()->contains(operand1->getIdent()->getName())
+    }
+}
