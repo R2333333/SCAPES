@@ -34,18 +34,22 @@ class Program{
     QString getFileName();
     int getComparisonFlag();
     void setComparisonFlag(int);
+    void setjumpedline(int);
+    void setendFlag(int);
     QJsonObject getQjsonobj();
     QMap<QString, Variable*>* getVMap();
-    QMap<QString, Label*>* getLMap();
+    QMap<QString, Label*> getLMap();
 
   private:
     QJsonObject programObj;
     QString fileName;
     int comparisonFlag;
+    int linejump;
+    int endflag;
     Identifier **identifier;
-    QLinkedList<Statement*> statements;
+    QJsonValue *statements;
     Statement *stat;
-    QMap<QString, Label*> *labelMap;
+    QMap<QString, Label*> labelMap;
     QMap<QString, Variable*> *varibleMap;
 };
 

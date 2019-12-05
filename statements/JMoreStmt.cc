@@ -1,4 +1,5 @@
 #include "../headerFiles/JMoreStmt.h"
+#include "../headerFiles/Program.h"
 using namespace std;
 
 JMoreStmt::JMoreStmt(){}
@@ -17,4 +18,12 @@ void JMoreStmt::compile(QString stat){
     statementObj["Operand1"] = this->getFirstOperand();
 }
 
-void JMoreStmt::run(){};
+void JMoreStmt::run(){
+    if(program->getComparisonFlag() != 1){
+        return;
+    }else{
+        int jumpedline;
+        jumpedline = program->getLMap().value(operand1->getIdent()->getName())->getLine();
+        program->setjumpedline(jumpedline);
+    }
+};
