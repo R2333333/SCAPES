@@ -31,7 +31,6 @@ void Program::compile(){
     QTextStream in(&inputFile);
 
     while (!in.atEnd()){
-
         QString s = in.readLine();
         lineCount += 1;
 
@@ -44,84 +43,85 @@ void Program::compile(){
         }
 
         if (s.startsWith("L")){
-           Label *l = new Label(s, lineCount);
+           Label *l = new Label(s, lineCount); if (l->getErrorMes() != NULL) {QMessageBox::warning(nullptr, "Error", QString(l->getErrorMes()).arg(lineCount)); return;}
            labelArray.append(l->getObj());
            s = l->getIns();
         }
 
         if (s.startsWith("dci")){
             stat = new DeclIntStmt();
-            stat->compile(s);
+            stat->compile(s); if (stat->getErrorMes() != NULL) {QMessageBox::warning(nullptr, "Error", QString(stat->getErrorMes()).arg(lineCount)); return;}
             statArray.append(stat->getObj());
         }
 
         if (s.startsWith("dca")){
             stat = new DeclArrStmt();
-            stat->compile(s);
+            stat->compile(s); if (stat->getErrorMes() != NULL) {QMessageBox::warning(nullptr, "Error", QString(stat->getErrorMes()).arg(lineCount)); return;}
             statArray.append(stat->getObj());
         }
 
         if (s.startsWith("rdi")){
             stat = new ReadStmt();
-            stat->compile(s);
+            stat->compile(s); if (stat->getErrorMes() != NULL) {QMessageBox::warning(nullptr, "Error", QString(stat->getErrorMes()).arg(lineCount)); return;}
             statArray.append(stat->getObj());
         }
 
         if (s.startsWith("prt")){
             stat = new PrintStmt();
-            stat->compile(s);
+            stat->compile(s); if (stat->getErrorMes() != NULL) {QMessageBox::warning(nullptr, "Error", QString(stat->getErrorMes()).arg(lineCount)); return;}
             statArray.append(stat->getObj());
         }
 
         if (s.startsWith("mov")){
             stat = new MoveStmt();
-            stat->compile(s);
+            stat->compile(s); if (stat->getErrorMes() != NULL) {QMessageBox::warning(nullptr, "Error", QString(stat->getErrorMes()).arg(lineCount)); return;}
             statArray.append(stat->getObj());
         }
 
         if (s.startsWith("add")){
             stat = new AddStmt();
-            stat->compile(s);
+            stat->compile(s); if (stat->getErrorMes() != NULL) {QMessageBox::warning(nullptr, "Error", QString(stat->getErrorMes()).arg(lineCount)); return;}
             statArray.append(stat->getObj());
         }
 
         if (s.startsWith("cmp")){
             stat = new CompStmt();
-            stat->compile(s);
+            stat->compile(s); if (stat->getErrorMes() != NULL) {QMessageBox::warning(nullptr, "Error", QString(stat->getErrorMes()).arg(lineCount)); return;}
             statArray.append(stat->getObj());
         }
 
         if (s.startsWith("jls")){
             stat = new JLessStmt();
-            stat->compile(s);
+            stat->compile(s); if (stat->getErrorMes() != NULL) {QMessageBox::warning(nullptr, "Error", QString(stat->getErrorMes()).arg(lineCount)); return;}
             statArray.append(stat->getObj());
         }
 
         if (s.startsWith("jmr")){
             stat = new JMoreStmt();
-            stat->compile(s);
+            stat->compile(s); if (stat->getErrorMes() != NULL) {QMessageBox::warning(nullptr, "Error", QString(stat->getErrorMes()).arg(lineCount)); return;}
             statArray.append(stat->getObj());
         }
 
-        if (s.startsWith("jeq")){
+        if (s.startsWith("jeq")){stat->compile(s);
             stat = new JEqStmt();
-            stat->compile(s);
+            stat->compile(s); if (stat->getErrorMes() != NULL) {QMessageBox::warning(nullptr, "Error", QString(stat->getErrorMes()).arg(lineCount)); return;}
             statArray.append(stat->getObj());
         }
 
         if (s.startsWith("jmp")){
             stat = new JumpStmt();
-            stat->compile(s);
+            stat->compile(s); if (stat->getErrorMes() != NULL) {QMessageBox::warning(nullptr, "Error", QString(stat->getErrorMes()).arg(lineCount)); return;}
             statArray.append(stat->getObj());
         }
 
         if (s.startsWith("end")){
             stat = new EndStmt();
-            stat->compile(s);
+            stat->compile(s); if (stat->getErrorMes() != NULL) {QMessageBox::warning(nullptr, "Error", QString(stat->getErrorMes()).arg(lineCount)); return;}
             statArray.append(stat->getObj());
         }
 
         statements.push_back(stat);
+
 
     }
 
@@ -142,6 +142,7 @@ void Program::compile(){
 
     qDebug() << endl << programObj << endl;
     //qDebug() << "WTF" << endl;
+
 
 }
 
@@ -233,13 +234,15 @@ void Program::run(){
             s->run();
         }
     }
+}
 
     //qDebug() << labelMap.find("L1").value()->getLine();
     //qDebug() << varibleMap->find("a").key();
     //qDebug() << varibleMap->find("a").value()->getType();
     //qDebug() << varibleMap->find("a").value()->getArrSize();
     //varibleMap->find("a").value()->print();
-}
+
+
 
 QJsonObject Program::getQjsonobj(){
     return programObj;

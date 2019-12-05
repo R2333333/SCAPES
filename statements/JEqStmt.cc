@@ -4,6 +4,9 @@ using namespace std;
 JEqStmt::JEqStmt(){}
 
 void JEqStmt::compile(QString stat){
+    if (checkError(stat)){
+        return;
+    }
     QStringList list = stat.split(" ");
 
     instruction = list.at(0);
