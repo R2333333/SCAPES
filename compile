@@ -1,4 +1,6 @@
-cd UI/output
+mkdir output
+cd output
+/home/student/Qt/5.13.0/gcc_64/bin/qmake ../UI/comp3004/comp3004.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
 make
 make clean
 cd ../../

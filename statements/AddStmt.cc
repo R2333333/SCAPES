@@ -53,7 +53,6 @@ void AddStmt::run(){
             }
         }
     }else{ //if input1 is an interger
-        //qDebug() << "11111111" << endl;
         value1 = operand1->getIdent()->getName().toInt();
     }
 
@@ -69,7 +68,6 @@ void AddStmt::run(){
             }
         }
     }else{ //input2 is an array variable
-        //qDebug() << "22222" << endl;
         QStringList l = operand2->getIdent()->getName().remove("$").split("+");
         arr2 = l[0];
         a2Index = l[1];
@@ -80,7 +78,6 @@ void AddStmt::run(){
                 if(!program->getVMap()->contains(a2Index)){ //Operand1 index variable is not in the map
                     QMessageBox::warning(nullptr, "Error", QString("Operand2 Index Variable not exists yet!!!"));
                 }else{ //Operand2 index variable is in the map
-                    //qDebug() << "33333" << endl;
                     index2 = program->getVMap()->value(a2Index)->getValue();
                 }
             }else{ //index is an integer

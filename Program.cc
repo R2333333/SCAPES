@@ -262,13 +262,15 @@ void Program::run(){
         output += c+"->";
     }
 
-    output += "Variable: \n";
+    output += "\nVariable: \n";
     QMap<QString, Variable*>::iterator it;
     for (it = varibleMap->begin(); it != varibleMap->end(); ++it){
         if (it.value()->getType().compare("array") == 0){
+            output += "Name: " + it.value()->getName() + "\nValues:";
             for(int i = 0; i < it.value()->getArrSize(); i++){
-              output +=QVariant(it.value()->getArrElement(i)).toString();
+              output +=QVariant(it.value()->getArrElement(i)).toString()+" ";
             }
+            output += "\n";
         }
         else {
             QString c;
