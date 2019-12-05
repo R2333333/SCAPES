@@ -19,6 +19,8 @@ public:
   Statement();
   virtual void compile(QString) = 0;
   virtual void run() = 0;
+  bool checkError(QString);
+  QString getErrorMes();
   virtual QString getInstruction();
   virtual QString getFirstOperand();
   virtual QString getSecondOperand();
@@ -34,6 +36,8 @@ protected:
   QMap<QString, Identifier*> *map;
   QString instruction;
   QJsonObject statementObj;
+  QString errorMes=NULL;
+  bool error = false;
 
 };
 #endif

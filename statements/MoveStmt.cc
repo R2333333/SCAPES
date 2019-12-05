@@ -6,6 +6,9 @@ using namespace std;
 MoveStmt::MoveStmt(){}
 
 void MoveStmt::compile(QString stat){
+    if (checkError(stat)){
+        return;
+    }
     QStringList list = stat.split(" ");
 
     instruction = list.at(0);

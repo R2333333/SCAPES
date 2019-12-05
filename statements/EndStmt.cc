@@ -4,6 +4,9 @@ using namespace std;
 EndStmt::EndStmt(){}
 
 void EndStmt::compile(QString stat){
+    if (checkError(stat)){
+        return;
+    }
 
     instruction = stat;
 

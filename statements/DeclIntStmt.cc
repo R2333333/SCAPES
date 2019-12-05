@@ -5,6 +5,9 @@ using namespace std;
 DeclIntStmt::DeclIntStmt(){}
 
 void DeclIntStmt::compile(QString stat){
+    if (checkError(stat)){
+        return;
+    }
 
   QStringList list = stat.split(" ");
 

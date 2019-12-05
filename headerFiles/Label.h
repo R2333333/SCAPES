@@ -12,6 +12,8 @@ class Label : public Identifier{
     //void setArrElement(int,int){}
     QString getIns();
     Label(QString, int);
+    bool checkError(QString);
+    QString getErrorMes();
     int getLine();
     //void setArr(int){}
     //~Label();
@@ -19,5 +21,7 @@ class Label : public Identifier{
   private:
     int line;
     QString restStat = "";
+    bool error=false;
+    QString errorMes = NULL;
 };
 #endif

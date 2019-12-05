@@ -5,6 +5,9 @@ using namespace std;
 PrintStmt::PrintStmt(){}
 
 void PrintStmt::compile(QString stat){
+    if (checkError(stat)){
+        return;
+    }
     QStringList list = stat.split(" ");
 
     instruction = list.at(0);

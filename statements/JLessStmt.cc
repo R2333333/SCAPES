@@ -5,6 +5,9 @@ using namespace std;
 JLessStmt::JLessStmt(){}
 
 void JLessStmt::compile(QString stat){
+    if (checkError(stat)){
+        return;
+    }
     QStringList list = stat.split(" ");
 
     instruction = list.at(0);
