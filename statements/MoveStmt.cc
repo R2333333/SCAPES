@@ -6,6 +6,9 @@ using namespace std;
 MoveStmt::MoveStmt(){}
 
 void MoveStmt::compile(QString stat){
+    if (checkError(stat)){
+        return;
+    }
     QStringList list = stat.split(" ");
 
     instruction = list.at(0);
@@ -96,7 +99,7 @@ void MoveStmt::run(){
             }
             qDebug() << index2 << endl;
             qDebug() << value1 ;
-            program->getVMap()->value(operand2->getIdent()->getName())->setArrElement(index2, value1);
+            program->getVMap()->value(arr2)->setArrElement(index2, value1);
         }
     }
 

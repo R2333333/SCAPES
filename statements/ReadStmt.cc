@@ -6,6 +6,9 @@ ReadStmt::ReadStmt()
   :Statement(){}
 
 void ReadStmt::compile(QString stat){
+    if (checkError(stat)){
+        return;
+    }
   QStringList list = stat.split(" ");
 
   instruction = list.at(0);

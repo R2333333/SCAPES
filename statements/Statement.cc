@@ -44,3 +44,98 @@ QString Statement::getFirstOperand(){
 QString Statement::getSecondOperand(){
   return operand2->getIdent()->getName();
 }
+
+bool Statement::checkError(QString s){
+
+            QRegExp separator("[(:| |)]");
+            QStringList list = s.split(separator);
+
+            if(s.isEmpty()){
+                return false;
+            }
+
+
+            if(list.count() > 1){ // The line with at least two words
+                if(s.contains(":")){ //incorrect format with ":" position
+                    if(list.at(1) != ""){
+                        errorMes = "Incorrect ':' position in line %1, fail to compile!!!";
+                        error = true;;
+                    }
+                }
+
+                    if(list.at(0) == "dci"){
+                        if(list.count() < 2){
+                            errorMes = "Too few arguments in dci in line %1, fail to compile!!!";
+                            error = true; return error;;
+                        }else if(list.count() > 2){
+                            errorMes = "Too many arguments in dci in line %1, fail to compile!!!";
+                            error = true; return error;;
+                        }
+
+                    }else if(list.at(0) == "rdi"){
+                        if(list.count() < 2){
+                            errorMes = "Too few arguments in rdi in line %1, fail to compile!!!";
+                            error = true; return error;;
+                        }else if(list.count() > 2){
+                            errorMes = "Too many arguments in rdi in line %1, fail to compile!!!";
+                            error = true; return error;;
+                        }
+
+                    }else if(list.at(0) == "prt"){
+                        if(list.count() < 2){
+                            errorMes = "Too few arguments in prt in line %1, fail to compile!!!";
+                            error = true; return error;;
+                        }else if(list.count() > 2){
+                            errorMes = "Too many arguments in prt in line %1, fail to compile!!!";
+                            error = true; return error;;
+                        }
+
+                    }else if(list.at(0) == "jmr"){
+                        if(list.count() < 2){
+                            errorMes = "Too few arguments in jmr in line %1, fail to compile!!!";
+                            error = true; return error;;
+                        }else if(list.count() > 2){
+                            errorMes = "Too many arguments in jmr in line %1, fail to compile!!!";
+                            error = true; return error;;
+                        }
+
+                    }else if(list.at(0) == "jmp"){
+                        if(list.count() < 2){
+                            errorMes = "Too few arguments in jmp in line %1, fail to compile!!!";
+                            error = true; return error;;
+                        }else if(list.count() > 2){
+                            errorMes = "Too many arguments in jmp in line %1, fail to compile!!!";
+                            error = true; return error;;
+                        }
+
+                    }else if (list.at(0) == "cmp") {
+                        if(list.count() < 3){
+                            errorMes = "Too few arguments in cmp in line %1, fail to compile!!!";
+                            error = true; return error;;
+                        }else if(list.count() > 3){
+                            errorMes = "Too many arguments in cmp in line %1, fail to compile!!!";
+                            error = true; return error;;
+                        }
+
+                    }else{ //incorrect instruction
+                        errorMes = "Unknown instruction in line %1, fail to compile!!!";
+                        error = true; return error;;
+                    }
+
+            }else{ //The line with only one word
+                if(list.at(0) == "end"){
+
+                    return false;
+                }else{
+                    errorMes = "Unknown statement in line %1, fail to compile!!!";
+                    error = true; return error;;
+                }
+            }
+
+
+    return error;
+}
+
+QString Statement::getErrorMes(){
+    return errorMes;
+}

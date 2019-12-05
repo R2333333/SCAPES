@@ -4,6 +4,9 @@ using namespace std;
 JMoreStmt::JMoreStmt(){}
 
 void JMoreStmt::compile(QString stat){
+    if (checkError(stat)){
+        return;
+    }
     QStringList list = stat.split(" ");
 
     instruction = list.at(0);
