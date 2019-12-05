@@ -1,0 +1,1 @@
+{"labels":[{"Label":"L1","LineNo.":9}],"programPath":"/home/student/comp3004/COMP3004/UI/output/TestAll","statements":[{"Instruction":"dci","Operand1":"a"},{"Instruction":"dci","Operand1":"b"},{"Instruction":"rdi","Operand1":"a"},{"Instruction":"rdi","Operand1":"b"},{"Instruction":"cmp","Operand1":"a","Operand2":"b"},{"Instruction":"jmp","Operand1":"L1"},{"Instruction":"end"}]}

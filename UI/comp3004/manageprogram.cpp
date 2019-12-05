@@ -68,7 +68,7 @@ void ManageProgram::on_Compile_clicked()
 
 void ManageProgram::on_Run_clicked()
 {
-    QString fileName = QFileDialog::getOpenFileName(this,"Please Choose File to Compile");
+    QString fileName = QFileDialog::getOpenFileName(this,"Please Choose File to Run");
     QFile inputFile(fileName);
 
     if (!inputFile.open(QFile::ReadOnly)){

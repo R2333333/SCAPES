@@ -54,3 +54,27 @@ void TextEditor::on_actionCompile_triggered()
     RepositoryControl *repoCon = new RepositoryControl();
     repoCon->save(this,outputName,outputJson);
 }
+
+void TextEditor::on_actionRun_triggered()
+{
+    QString fileName = QFileDialog::getOpenFileName(this,"Please Choose File to Run");
+    QFile inputFile(fileName);
+
+    if (!inputFile.open(QFile::ReadOnly)){
+        QMessageBox::warning(nullptr, "Error", "Can not Open file");
+    }else{
+        QString outputName = QFileDialog::getSaveFileName(this, "Please Choose Output File Name");
+        QFile outputFile(outputName);
+        if (!outputFile.open(QFile::ReadOnly)){
+            if(outputName == nullptr){
+                QMessageBox::warning(nullptr, "Error", "No output file");
+                return;
+            }else{
+                RepositoryControl *repoCon = new RepositoryControl();
+                repoCon->create(outputName.toStdString());
+            }
+        }
+        CompileControl *comCon = new CompileControl(fileName,outputName);
+        comCon->run();
+    }
+}

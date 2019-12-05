@@ -44,10 +44,8 @@
      <string>Build</string>
     </property>
     <addaction name="actionCompile"/>
-    <addaction name="actionCompile_From"/>
     <addaction name="separator"/>
     <addaction name="actionRun"/>
-    <addaction name="actionRun_From"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuBuild"/>
@@ -81,16 +79,6 @@
   <action name="actionRun">
    <property name="text">
     <string>Run</string>
-   </property>
-  </action>
-  <action name="actionCompile_From">
-   <property name="text">
-    <string>Compile From</string>
-   </property>
-  </action>
-  <action name="actionRun_From">
-   <property name="text">
-    <string>Run From</string>
    </property>
   </action>
  </widget>

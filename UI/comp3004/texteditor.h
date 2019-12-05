@@ -27,6 +27,8 @@ private slots:
 
     void on_actionCompile_triggered();
 
+    void on_actionRun_triggered();
+
 private:
     Ui::TextEditor *ui;
     QString fileToSave;
