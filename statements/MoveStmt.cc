@@ -55,7 +55,7 @@ void MoveStmt::run(){
             }
         }
     }else{ //if input1 is an interger
-        qDebug() << "11111111" << endl;
+        //qDebug() << "11111111" << endl;
         value1 = operand1->getIdent()->getName().toInt();
     }
 
@@ -70,7 +70,7 @@ void MoveStmt::run(){
             }
         }
     }else{ //input2 is an array variable
-        qDebug() << "22222" << endl;
+        //qDebug() << "22222" << endl;
         QStringList l = operand2->getIdent()->getName().remove("$").split("+");
         arr2 = l[0];
         a2Index = l[1];

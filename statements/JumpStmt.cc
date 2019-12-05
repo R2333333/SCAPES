@@ -1,4 +1,5 @@
 #include "../headerFiles/JumpStmt.h"
+#include "../headerFiles/Program.h"
 using namespace std;
 
 JumpStmt::JumpStmt(){}
@@ -17,4 +18,8 @@ void JumpStmt::compile(QString stat){
     statementObj["Operand1"] = this->getFirstOperand();
 }
 
-void JumpStmt::run(){};
+void JumpStmt::run(){
+    int jumpedline;
+    jumpedline = program->getLMap().value(operand1->getIdent()->getName())->getLine();
+    program->setjumpedline(jumpedline);
+}

@@ -1,4 +1,5 @@
 #include "../headerFiles/JEqStmt.h"
+#include "../headerFiles/Program.h"
 using namespace std;
 
 JEqStmt::JEqStmt(){}
@@ -17,4 +18,12 @@ void JEqStmt::compile(QString stat){
     statementObj["Operand1"] = this->getFirstOperand();
 }
 
-void JEqStmt::run(){}
+void JEqStmt::run(){
+    if(program->getComparisonFlag() != 0){
+        return;
+    }else{
+        int jumpedline;
+        jumpedline = program->getLMap().value(operand1->getIdent()->getName())->getLine();
+        program->setjumpedline(jumpedline);
+    }
+}

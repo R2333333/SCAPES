@@ -15,7 +15,7 @@ Program::Program(QString fileName){
 //  //qDebug() << "Program destructor" << endl;
 //}
 
-QMap<QString, Label*>* Program::getLMap(){
+QMap<QString, Label*> Program::getLMap(){
     return labelMap;
 }
 
@@ -124,7 +124,8 @@ void Program::compile(){
             statArray.append(stat->getObj());
         }
 
-        statements.push_back(stat);
+
+        //statements.push_back(stat);
 
 
     }
@@ -161,84 +162,101 @@ void Program::run(){
     //qDebug() << obj["labels"].toString();
     foreach (const QJsonValue &value, obj["labels"].toArray()){
         //qDebug() << value.toString();
-        labelMap->insert(value["Label"].toString(), new Label(value["Label"].toString(), value["LineNo."].toInt()));
+        labelMap.insert(value["Label"].toString(), new Label(value["Label"].toString(), value["LineNo."].toInt()));
     }
-
+    statements = new QJsonValue[obj["statements"].toArray().size()];
+    int ct = 0;
     foreach (const QJsonValue &value, obj["statements"].toArray()){
-        if(value["Instruction"].toString().compare("dci") == 0){
+        statements[ct] = value;
+        //qDebug() << value<<"value";
+        //qDebug() << statements[ct] << "state";
+        ct++;
+
+    }
+    for (int i = 0; i < ct; ++i){
+        linejump = i + 1;
+
+        if(statements[i]["Instruction"].toString().compare("dci") == 0){
 
             Statement *s = new DeclIntStmt();
-            s->setObj(value, this);
+            s->setObj(statements[i], this);
             s->run();
         }
 
-        if(value["Instruction"].toString().compare("dca") == 0){
+        if(statements[i]["Instruction"].toString().compare("dca") == 0){
             Statement *s = new DeclArrStmt();
-            s->setObj(value, this);
+            s->setObj(statements[i], this);
             s->run();
         }
 
-        if(value["Instruction"].toString().compare("rdi") == 0){
+        if(statements[i]["Instruction"].toString().compare("rdi") == 0){
             Statement *s = new ReadStmt();
-            s->setObj(value, this);
+            s->setObj(statements[i], this);
             s->run();
         }
 
-        if(value["Instruction"].toString().compare("prt") == 0){
+        if(statements[i]["Instruction"].toString().compare("prt") == 0){
             Statement *s = new PrintStmt();
-            s->setObj(value, this);
+            s->setObj(statements[i], this);
             s->run();
         }
 
-        if(value["Instruction"].toString().compare("mov") == 0){
+        if(statements[i]["Instruction"].toString().compare("mov") == 0){
             Statement *s = new MoveStmt();
-            s->setObj(value, this);
+            s->setObj(statements[i], this);
             s->run();
         }
 
-        if(value["Instruction"].toString().compare("add") == 0){
+        if(statements[i]["Instruction"].toString().compare("add") == 0){
             Statement *s = new AddStmt();
-            s->setObj(value, this);
+            s->setObj(statements[i], this);
             s->run();
         }
 
-        if(value["Instruction"].toString().compare("cmp") == 0){
+        if(statements[i]["Instruction"].toString().compare("cmp") == 0){
             Statement *s = new CompStmt();
-            s->setObj(value, this);
+            s->setObj(statements[i], this);
             s->run();
         }
 
-        if(value["Instruction"].toString().compare("jls") == 0){
+        if(statements[i]["Instruction"].toString().compare("jls") == 0){
             Statement *s = new JLessStmt();
-            s->setObj(value, this);
+            s->setObj(statements[i], this);
             s->run();
+            i = linejump - 1;
         }
 
-        if(value["Instruction"].toString().compare("jmr") == 0){
+        if(statements[i]["Instruction"].toString().compare("jmr") == 0){
             Statement *s = new JMoreStmt();
-            s->setObj(value, this);
+            s->setObj(statements[i], this);
             s->run();
+            i = linejump - 1;
         }
 
-        if(value["Instruction"].toString().compare("jeq") == 0){
+        if(statements[i]["Instruction"].toString().compare("jeq") == 0){
             Statement *s = new JEqStmt();
-            s->setObj(value, this);
+            s->setObj(statements[i], this);
             s->run();
+            i = linejump - 1;
         }
 
-        if(value["Instruction"].toString().compare("jmp") == 0){
+        if(statements[i]["Instruction"].toString().compare("jmp") == 0){
             Statement *s = new JumpStmt();
-            s->setObj(value, this);
+            s->setObj(statements[i], this);
             s->run();
+            i = linejump - 1;
         }
 
-        if(value["Instruction"].toString().compare("end") == 0){
+        if(statements[i]["Instruction"].toString().compare("end") == 0){
             Statement *s = new EndStmt();
-            s->setObj(value, this);
+            s->setObj(statements[i], this);
             s->run();
+            if(endflag == 1){
+                break;
+            }
         }
     }
-}
+
 
     //qDebug() << labelMap.find("L1").value()->getLine();
     //qDebug() << varibleMap->find("a").key();
@@ -246,9 +264,8 @@ void Program::run(){
     //qDebug() << varibleMap->find("a").value()->getArrSize();
     //varibleMap->find("a").value()->print();
     //cout << getComparisonFlag() << endl;
+
 }
-
-
 QJsonObject Program::getQjsonobj(){
     return programObj;
 }
@@ -263,6 +280,14 @@ void Program::setFileName(QString fileName){}
 QString Program::getFileName(){return this->fileName;}
 
 int Program::getComparisonFlag(){return this->comparisonFlag;}
+
+void Program::setjumpedline(int j){
+   linejump = j;
+}
+
+void Program::setendFlag(int e){
+    endflag = e;
+}
 
 void Program::setComparisonFlag(int c){
     comparisonFlag = c;

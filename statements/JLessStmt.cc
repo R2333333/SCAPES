@@ -22,6 +22,8 @@ void JLessStmt::run(){
     if(program->getComparisonFlag() != -1){
         return;
     }else{
-        //program->getLMap()->contains(operand1->getIdent()->getName())
+        int jumpedline;
+        jumpedline = program->getLMap().value(operand1->getIdent()->getName())->getLine();
+        program->setjumpedline(jumpedline);
     }
 }
