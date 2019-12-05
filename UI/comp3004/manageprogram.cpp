@@ -87,6 +87,9 @@ void ManageProgram::on_Run_clicked()
         }
         CompileControl *comCon = new CompileControl(fileName,outputName);
         comCon->run();
+        QString output = comCon->getOutput();
+        RepositoryControl *repoCon = new RepositoryControl();
+        repoCon->save(this,outputName,output);
         //QJsonObject outputObj = comCon->getQJson();
         //QJsonDocument Doc(outputObj);
         //QString outputJson(Doc.toJson(QJsonDocument::Compact));

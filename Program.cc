@@ -165,6 +165,7 @@ void Program::run(){
         labelMap.insert(value["Label"].toString(), new Label(value["Label"].toString(), value["LineNo."].toInt()));
     }
     statements = new QJsonValue[obj["statements"].toArray().size()];
+    output += "Control Flow: Lines: ";
     int ct = 0;
     foreach (const QJsonValue &value, obj["statements"].toArray()){
         statements[ct] = value;
@@ -252,26 +253,39 @@ void Program::run(){
             s->setObj(statements[i], this);
             s->run();
             if(endflag == 1){
+                output += "end!\n";
                 break;
             }
         }
+        QString c = QVariant(i).toString();
+
+        output += c+"->";
     }
 
-
-    //qDebug() << labelMap.find("L1").value()->getLine();
-    //qDebug() << varibleMap->find("a").key();
-    //qDebug() << varibleMap->find("a").value()->getType();
-    //qDebug() << varibleMap->find("a").value()->getArrSize();
-    //varibleMap->find("a").value()->print();
-    //cout << getComparisonFlag() << endl;
+    output += "Variable: \n";
+    QMap<QString, Variable*>::iterator it;
+    for (it = varibleMap->begin(); it != varibleMap->end(); ++it){
+        if (it.value()->getType().compare("array") == 0){
+            for(int i = 0; i < it.value()->getArrSize(); i++){
+              output +=QVariant(it.value()->getArrElement(i)).toString();
+            }
+        }
+        else {
+            QString c;
+            c = QVariant(it.value()->getValue()).toString();
+            output += "Name: " + it.key() + "   Value: " + c + "\n";
+        }
+    }
+    qDebug() << output;
 
 }
 QJsonObject Program::getQjsonobj(){
     return programObj;
 }
 
-//print out the program
-void Program::print(){}
+QString Program::getOutput(){
+    return output;
+}
 
 //change the program's name
 void Program::setFileName(QString fileName){}
