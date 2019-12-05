@@ -1,0 +1,16 @@
+dca a 5
+dci b
+rdi b
+rdi a
+rdi a
+rdi a
+rdi a
+rdi a
+L2:cmp $a+1 $a+2
+jls L1
+L1: add $a+1 $a+1
+cmp $a+1 $a+2
+jls L1
+#jeq L2
+L2: prt a
+end
