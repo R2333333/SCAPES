@@ -36,7 +36,7 @@ jls L1
 jeq L1
 
 #jump more to L3 to print if compare was greater
-jmr L3 
+jmr L3
 
 #print array a
 L3: prt a

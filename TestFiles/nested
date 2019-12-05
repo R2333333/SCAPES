@@ -1,0 +1,22 @@
+dca a 5
+dca b 5
+rdi a
+rdi a
+rdi a
+rdi a
+rdi a
+rdi b
+rdi b
+rdi b
+rdi b
+rdi b
+L1: cmp $a+1 $b+2
+L2: add $b+1 $a+1
+L3: mov $b+1 $b+2
+#jls L1
+#jeq L2
+#jmr L4
+L4: prt a
+#jmp L5
+L5: prt b
+end
