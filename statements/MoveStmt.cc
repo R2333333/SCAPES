@@ -22,16 +22,6 @@ void MoveStmt::compile(QString stat){
     statementObj["Operand2"] = this->getSecondOperand();
 }
 
-bool checkNum(QString s){
-    bool isNumeric1 = true;
-
-    for (QChar c : s){ //input1 is an integer
-        if (!c.isNumber()){
-            isNumeric1 = false;
-        }
-    }
-    return isNumeric1;
-}
 
 void MoveStmt::run(){
 
@@ -97,8 +87,6 @@ void MoveStmt::run(){
             }else{ //index is an integer
                 index2 = a2Index.toInt();
             }
-            qDebug() << index2 << endl;
-            qDebug() << value1 ;
             program->getVMap()->value(arr2)->setArrElement(index2, value1);
         }
     }

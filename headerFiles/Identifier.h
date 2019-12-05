@@ -19,6 +19,7 @@ class Identifier{
           virtual QString getType(){return "identifier";}
           //virtual void setArr(int);
           virtual void addArrElement(int){}
+          //virtual void setArrElement(int,int){}
 
   protected:
           QJsonObject identifierObj;

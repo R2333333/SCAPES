@@ -9,6 +9,7 @@ class Label : public Identifier{
     void setValue(int){}
     QString getType(){return "Label";}
     void addArrElement(int){}
+    //void setArrElement(int,int){}
     QString getIns();
     Label(QString, int);
     bool checkError(QString);
