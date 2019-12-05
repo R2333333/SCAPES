@@ -37,6 +37,7 @@ class Program{
     void setjumpedline(int);
     void setendFlag(int);
     QJsonObject getQjsonobj();
+    QString getOutput();
     QMap<QString, Variable*>* getVMap();
     QMap<QString, Label*> getLMap();
 
@@ -51,6 +52,7 @@ class Program{
     Statement *stat;
     QMap<QString, Label*> labelMap;
     QMap<QString, Variable*> *varibleMap;
+    QString output = "";
 };
 
 #endif

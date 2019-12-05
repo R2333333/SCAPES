@@ -1,0 +1,1 @@
+{"labels":[{"Label":"L1","LineNo.":6}],"programPath":"123","statements":[{"Instruction":"dci","Operand1":"a"},{"Instruction":"rdi","Operand1":"a"},{"Instruction":"add","Operand1":"a","Operand2":"a"},{"Instruction":"prt","Operand1":"a"},{"Instruction":"jmp","Operand1":"L1"},{"Instruction":"end"}]}

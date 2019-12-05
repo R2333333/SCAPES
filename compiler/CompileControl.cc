@@ -37,3 +37,7 @@ void CompileControl::storePgm(){
 //  repository = new RepositoryControl();
 //  repository->save(outPutName);
 }
+
+QString CompileControl::getOutput(){
+    return program->getOutput();
+}

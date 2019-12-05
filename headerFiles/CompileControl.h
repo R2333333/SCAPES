@@ -12,7 +12,7 @@ class CompileControl{
     CompileControl(QString filePath, QString outPutName);
     void compile();
     QJsonObject getQJson();
-    //QString GetSource();
+    QString getOutput();
     void CreatePgm();
     void storePgm();
     void run();
