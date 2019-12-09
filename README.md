@@ -1,7 +1,6 @@
 # SCAPES
 SCAPES System is "School of Computer science Assembly Programming Environment System" 
-This is a course project for COMP 3004 at Carleton University, for details of the project:
-# [SCAPES](/SCAPES.pdf)
+This is a course project for COMP 3004 at Carleton University, for details of the project:[SCAPES](/SCAPES.pdf)
 
 Writen by: 
 	   Roy Xu
